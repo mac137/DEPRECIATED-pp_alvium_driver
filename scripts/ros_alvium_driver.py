@@ -1,10 +1,13 @@
 import rospy
-import sys
+import sys, termios, tty
 import threading
 import cv2
+from signal import signal, SIGINT
 from sensor_msgs.msg import Image
 from vimba import *
-from alvium_driver import get_camera, setup_camera
+# this must be like this to properly install Python package in ROS
+# see http://wiki.ros.org/rospy_tutorials/Tutorials/Makefile
+from pp_alvium_driver.alvium_driver import get_camera, setup_camera
 from cv_bridge import CvBridge, CvBridgeError
 
 
@@ -39,26 +42,26 @@ class Handler4ros:
 
         cam.queue_frame(frame)
 
+
+    def handler_f(self, signal_received, frame):
+        # Handle any cleanup here
+        self.close_properly()
+        # print('SIGINT or CTRL-C detected. Exiting gracefully')
+        exit(0)
+
     def close_properly(self):
         self.shutdown_event.set()
-        rospy.loginfo("Alvium camera driver closed properly.")
+        rospy.loginfo("Alvium camera's thread closing ...")
         return
+
 
 
 def main(args):
 
+
     pub = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
     rospy.init_node('pp_alvium_python_driver', anonymous=False)
     rospy.loginfo("Alvium driver initialised")
-
-    #TODO make that changeable
-    rate = rospy.Rate(10)
-
-    # while not rospy.is_shutdown():
-    #     cv_img = "hello world %s" % rospy.get_time()
-    #
-    #     pub.publish(cv_img)
-    #     rate.sleep()
 
     cam_id = 0
     frequency = 30
@@ -70,6 +73,8 @@ def main(args):
             # Start Streaming, wait for five seconds, stop streaming
             setup_camera(cam)
             handler = Handler4ros(pub)
+            # this handles CTRL+C to close the node properly
+            signal(SIGINT, handler.handler_f)
             rospy.loginfo("Alvium camera of id={} opened with intended fps={}".format(cam_id, frequency))
 
             try:
@@ -79,10 +84,11 @@ def main(args):
 
             finally:
                 cam.stop_streaming()
+                rospy.loginfo("Alvium camera driver closed properly.")
                 # handler.close_properly()
-                rospy.on_shutdown(handler.close_properly())
+                # rospy.on_shutdown(handler.close_properly())
 
-    rospy.on_shutdown(handler.close_properly())
+    # rospy.on_shutdown(handler.close_properly())
 
 if __name__ == '__main__':
     main(sys.argv)
