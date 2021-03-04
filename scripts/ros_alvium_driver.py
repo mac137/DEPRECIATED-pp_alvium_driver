@@ -54,13 +54,7 @@ class Handler4ros:
         return
 
 
-
-
 def main(args):
-
-    def close_cam(cam):
-        cam.stop_streaming()
-
 
     pub = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
     rospy.init_node('pp_alvium_python_driver', anonymous=False)

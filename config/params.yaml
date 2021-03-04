@@ -1,3 +1,4 @@
 rbg_cam_id: 0
 rgb_frequency: 30
-rbg_camera_info: True # Fasle or True
+# do not implement camera info cos I will do rectification via an openCV and not the ROS package
+rbg_camera_info: False # Fasle or True
