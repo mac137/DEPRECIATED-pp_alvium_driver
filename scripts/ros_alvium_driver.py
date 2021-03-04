@@ -1,7 +1,7 @@
 import rospy
-import sys, termios, tty
+import sys
 import threading
-import cv2
+# import cv2
 from signal import signal, SIGINT
 from sensor_msgs.msg import Image
 from vimba import *
@@ -18,15 +18,16 @@ class Handler4ros:
         self.bridge = CvBridge()
 
     def __call__(self, cam: Camera, frame: Frame):
-        ENTER_KEY_CODE = 13
+        # ENTER_KEY_CODE = 13
+        #
+        # key = cv2.waitKey(1)
+        # if key == ENTER_KEY_CODE:
+        #     # self.shutdown_event.set()
+        #     # return
+        #     self.close_properly()
 
-        key = cv2.waitKey(1)
-        if key == ENTER_KEY_CODE:
-            # self.shutdown_event.set()
-            # return
-            self.close_properly()
-
-        elif frame.get_status() == FrameStatus.Complete:
+        # elif frame.get_status() == FrameStatus.Complete:
+        if frame.get_status() == FrameStatus.Complete:
             # print('{} acquired {}'.format(cam, frame), flush=True)
             try:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
@@ -37,8 +38,6 @@ class Handler4ros:
                 # cv2.imshow(msg.format(cam.get_name()), frame.as_opencv_image())
             except CvBridgeError as e:
                 print(e)
-
-
 
         cam.queue_frame(frame)
 
@@ -56,7 +55,11 @@ class Handler4ros:
 
 
 
+
 def main(args):
+
+    def close_cam(cam):
+        cam.stop_streaming()
 
 
     pub = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
@@ -64,7 +67,21 @@ def main(args):
     rospy.loginfo("Alvium driver initialised")
 
     cam_id = 0
-    frequency = 30
+    frequency = 15
+
+    try:
+        cam_id = int(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
+        frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
+        cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
+    except:
+        rospy.logerr("Alvium camera driver couldn't load my config parameters")
+
+    # cam_info works properly
+    # if cam_info:
+    #     rospy.loginfo("Got True")
+    # else:
+    #     rospy.loginfo("Got False")
+
 
     rospy.loginfo("Opening Vimba ...")
     with Vimba.get_instance():
@@ -88,7 +105,8 @@ def main(args):
                 # handler.close_properly()
                 # rospy.on_shutdown(handler.close_properly())
 
-    # rospy.on_shutdown(handler.close_properly())
+    # that does not seem to work so uncommented
+    # rospy.on_shutdown(close_cam(cam))
 
 if __name__ == '__main__':
     main(sys.argv)
