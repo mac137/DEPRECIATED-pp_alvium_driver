@@ -50,7 +50,7 @@ class Handler4ros:
                 ros_img_msg.header.stamp = time_stamp
                 self.cam_info_params_msg.header.stamp = time_stamp
                 self.img_publisher.publish(ros_img_msg)
-                self.cam_info_publisher(self.cam_info_params_msg)
+                self.cam_info_publisher.publish(self.cam_info_params_msg)
 
                 # you can compare the ros img and the cv img here - they r the same!!! :- )
                 # msg = 'Stream from \'{}\'. Press <Enter> to stop stream.'
