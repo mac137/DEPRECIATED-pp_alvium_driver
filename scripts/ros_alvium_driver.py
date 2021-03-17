@@ -1,21 +1,30 @@
 import rospy
 import sys
 import threading
+import yaml
 # import cv2
 from signal import signal, SIGINT
 from sensor_msgs.msg import Image
+from sensor_msgs.msg import CameraInfo
 from vimba import *
 # this must be like this to properly install Python package in ROS
 # see http://wiki.ros.org/rospy_tutorials/Tutorials/Makefile
 from pp_alvium_driver.alvium_driver import get_camera, setup_camera
 from cv_bridge import CvBridge, CvBridgeError
+from pathlib import Path
 
 
 class Handler4ros:
-    def __init__(self, publisher):
+    def __init__(self, img_publisher, cam_info_publisher, yaml_fname):
         self.shutdown_event = threading.Event()
-        self.publisher = publisher
+        self.img_publisher = img_publisher
+        self.cam_info_publisher = cam_info_publisher
         self.bridge = CvBridge()
+        if yaml_fname is not None:
+            rospy.loginfo("Reading parameters from the calibration file: " + yaml_fname)
+            self.cam_info_params_msg = Handler4ros.read_calibration_configuration(yaml_fname)
+            if self.cam_info_params_msg is None:
+                rospy.logerr("Could not read from the calibration file!")
 
     def __call__(self, cam: Camera, frame: Frame):
         # ENTER_KEY_CODE = 13
@@ -33,7 +42,15 @@ class Handler4ros:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
                 # and bgr8 seems to work well
-                self.publisher.publish(self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8"))
+                ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8")
+                # frame.get_timestamp()
+                ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
+                #TODO change the time to come from the alvium camera frame and not from Time.now()
+                time_stamp = rospy.Time.now()
+                ros_img_msg.header.stamp = time_stamp
+                self.cam_info_params_msg.header.stamp = time_stamp
+                self.img_publisher.publish(ros_img_msg)
+                self.cam_info_publisher(self.cam_info_params_msg)
 
                 # you can compare the ros img and the cv img here - they r the same!!! :- )
                 # msg = 'Stream from \'{}\'. Press <Enter> to stop stream.'
@@ -42,7 +59,6 @@ class Handler4ros:
                 print(e)
 
         cam.queue_frame(frame)
-
 
     def handler_f(self, signal_received, frame):
         # Handle any cleanup here
@@ -55,22 +71,48 @@ class Handler4ros:
         rospy.loginfo("Alvium camera's thread closing ...")
         return
 
+    @staticmethod
+    def read_calibration_configuration(yaml_fname):
+
+        path2file = Path(yaml_fname)
+        if path2file.is_file():
+            with open(yaml_fname, "r") as file_handle:
+                calib_data = yaml.load(file_handle)
+            # Parse
+            camera_info_msg = CameraInfo()
+            camera_info_msg.width = calib_data["image_width"]
+            camera_info_msg.height = calib_data["image_height"]
+            camera_info_msg.K = calib_data["camera_matrix"]["data"]
+            camera_info_msg.D = calib_data["distortion_coefficients"]["data"]
+            camera_info_msg.R = calib_data["rectification_matrix"]["data"]
+            camera_info_msg.P = calib_data["projection_matrix"]["data"]
+            camera_info_msg.distortion_model = calib_data["camera_model"]
+            camera_info_msg.header.frame_id = calib_data["camera_name"]
+            return camera_info_msg
+        else:
+            return None
 
 def main(args):
 
-    pub = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
+    try:
+        cam_id = int(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
+        frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
+        cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
+        if cam_info:
+            yaml_fname = str(rospy.get_param("/ros_alvium_driver/calibration_yaml"))
+        else:
+            yaml_fname = None
+    except:
+        rospy.logerr("Alvium camera driver couldn't load my config parameters")
+
+    pub_img = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
+    pub_cam_info = rospy.Publisher('pp/rgb_cam_info', CameraInfo, queue_size=1)
     rospy.init_node('pp_alvium_python_driver', anonymous=False)
     rospy.loginfo("Alvium driver initialised")
 
     cam_id = 0
     frequency = 15
 
-    try:
-        cam_id = int(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
-        frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
-        cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
-    except:
-        rospy.logerr("Alvium camera driver couldn't load my config parameters")
 
     # cam_info works properly
     # if cam_info:
@@ -85,7 +127,7 @@ def main(args):
 
             # Start Streaming, wait for five seconds, stop streaming
             setup_camera(cam)
-            handler = Handler4ros(pub)
+            handler = Handler4ros(pub_img, pub_cam_info, yaml_fname)
             # this handles CTRL+C to close the node properly
             signal(SIGINT, handler.handler_f)
             rospy.loginfo("Alvium camera of id={} opened with intended fps={}".format(cam_id, frequency))
