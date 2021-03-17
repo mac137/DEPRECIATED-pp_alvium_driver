@@ -31,7 +31,9 @@ class Handler4ros:
             # print('{} acquired {}'.format(cam, frame), flush=True)
             try:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
-                self.publisher.publish(self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough"))
+                # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
+                # and bgr8 seems to work well
+                self.publisher.publish(self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8"))
 
                 # you can compare the ros img and the cv img here - they r the same!!! :- )
                 # msg = 'Stream from \'{}\'. Press <Enter> to stop stream.'
