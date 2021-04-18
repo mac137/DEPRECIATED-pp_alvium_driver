@@ -4,6 +4,7 @@
 <!--     <remap from="pattern_topic_published" to="cam0/calib_pattern_recognised" /> -->
     <node pkg="pp_alvium_driver" name="ros_alvium_driver" type="ros_alvium_driver.py" output="screen">
         <rosparam file="$(find pp_alvium_driver)/config/params.yaml" command="load"/>
+        <remap from="pp/rgb_raw" to="pp/image_raw"/>
     </node>
 
 </launch>

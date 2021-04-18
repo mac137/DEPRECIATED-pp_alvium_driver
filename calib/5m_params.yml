@@ -1,0 +1,26 @@
+image_width: 2064
+image_height: 1544
+camera_name: pp_rgb
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [ 2341.8204739724592, 0.0, 1064.004089484305,
+            0.0, 2343.840692098366, 753.4986050277888,
+            0.0, 0.0, 1.0 ]
+camera_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [ -0.02656797862224776, -0.1717613823469681, -0.002984861206963672, 0.006016515780680508, 0.8110833276977727]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [ 1., 0., 0.,
+            0., 1., 0.,
+            0., 0., 1. ]
+projection_matrix: # for openCV's free scaling param alpha = 1
+  rows: 3
+  cols: 4
+  data: [ 2324.428466796875, 0.0, 1071.8780919488709, 0.,
+            0.0, 2319.79638671875, 749.9649467262352, 0.,
+            0.0, 0.0, 1.0, 0.]

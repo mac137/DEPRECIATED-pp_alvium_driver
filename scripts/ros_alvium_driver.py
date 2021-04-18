@@ -84,9 +84,9 @@ class Handler4ros:
             camera_info_msg.height = calib_data["image_height"]
             camera_info_msg.K = calib_data["camera_matrix"]["data"]
             camera_info_msg.D = calib_data["distortion_coefficients"]["data"]
-            camera_info_msg.R = calib_data["rectification_matrix"]["data"]
-            camera_info_msg.P = calib_data["projection_matrix"]["data"]
-            camera_info_msg.distortion_model = calib_data["camera_model"]
+            #camera_info_msg.R = calib_data["rectification_matrix"]["data"]
+            #camera_info_msg.P = calib_data["projection_matrix"]["data"]
+            #camera_info_msg.distortion_model = calib_data["camera_model"]
             camera_info_msg.header.frame_id = calib_data["camera_name"]
             return camera_info_msg
         else:
@@ -106,12 +106,12 @@ def main(args):
         rospy.logerr("Alvium camera driver couldn't load my config parameters")
 
     pub_img = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
-    pub_cam_info = rospy.Publisher('pp/rgb_cam_info', CameraInfo, queue_size=1)
+    pub_cam_info = rospy.Publisher('pp/camera_info', CameraInfo, queue_size=1)
     rospy.init_node('pp_alvium_python_driver', anonymous=False)
     rospy.loginfo("Alvium driver initialised")
 
-    cam_id = 0
-    frequency = 15
+    #cam_id = 0
+    #frequency = 15
 
 
     # cam_info works properly
