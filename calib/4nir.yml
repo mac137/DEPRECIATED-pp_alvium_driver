@@ -1,0 +1,26 @@
+image_width: 2064
+image_height: 1544
+camera_name: pp_nir
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [ 2293.930260445461, 0.0, 985.6622843134096,
+            0.0, 2350.181833543214, 810.7189706807927,
+            0.0, 0.0, 1.0 ]
+camera_model: none
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [ -0.06479119373228089, 0.14675689550626883, -0.0008114383198165945, -0.00475414523190477, -0.09047546586546062]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [ 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0 ]
+projection_matrix: # for openCV's free scaling param alpha = 1
+  rows: 3
+  cols: 4
+  data: [ 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.,
+            0.0, 0.0, 1.0, 0.]

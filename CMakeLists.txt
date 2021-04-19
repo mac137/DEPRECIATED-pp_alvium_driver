@@ -74,9 +74,8 @@ catkin_python_setup()
 #############
 
 catkin_install_python(PROGRAMS
-        #scripts/sensors_drivers_server.py
-        scripts/ros_alvium_driver.py
-        #scripts/alvium_driver.py
+        scripts/ros_alvium_rgb.py
+        scripts/ros_alvium_nir.py
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
         )
 

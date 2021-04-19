@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+<!--     <remap from="img_topic_subscribed" to="cam0/image_raw" /> -->
+<!--     <remap from="pattern_topic_published" to="cam0/calib_pattern_recognised" /> -->
+    <node pkg="pp_alvium_driver" name="ros_alvium_rgb" type="ros_alvium_rgb.py" output="screen">
+<!--         <rosparam file="$(find pp_alvium_driver)/config/params_rgb.yaml" command="load"/> -->
+<!--         <remap from="pp/nir_raw" to="pp/rgb_raw"/> -->
+    </node>
+
+</launch>

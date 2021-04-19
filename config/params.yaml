@@ -1,4 +1,0 @@
-rbg_cam_id: 0
-rgb_frequency: 60
-rbg_camera_info: True # Fasle or True
-calibration_yaml: "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
