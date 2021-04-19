@@ -1,8 +1,9 @@
+import numpy as np
 import rospy
 import sys
 import threading
 import yaml
-# import cv2
+import cv2
 from signal import signal, SIGINT
 from sensor_msgs.msg import Image
 from sensor_msgs.msg import CameraInfo
@@ -42,7 +43,7 @@ class Handler4ros:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
                 # and bgr8 seems to work well
-                ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="mono8")
+                ros_img_msg = self.bridge.cv2_to_imgmsg(Handler4ros.resize_img(frame.as_opencv_image(), 2064, 1544), encoding="mono8")
                 # frame.get_timestamp()
                 ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
                 #TODO change the time to come from the alvium camera frame and not from Time.now()
@@ -91,6 +92,12 @@ class Handler4ros:
             return camera_info_msg
         else:
             return None
+
+    @staticmethod
+    def resize_img(img: np.ndarray, width: int, height: int):
+        img = cv2.resize(img, (width, height), interpolation=cv2.INTER_AREA)
+        return img[..., np.newaxis]
+
 
 def main(args):
 
