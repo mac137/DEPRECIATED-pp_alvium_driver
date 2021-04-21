@@ -123,7 +123,7 @@ def main(args):
     cam_id = "DEV_1AB22C00C28B"
     frequency = 60
     cam_info = True
-    yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/4nir.yml"
+    yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210421_NIR.yml"
     ##########################################
 
     rospy.loginfo("Opening Vimba ...")
