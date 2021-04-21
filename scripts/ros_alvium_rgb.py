@@ -111,7 +111,7 @@ def main(args):
     rospy.loginfo("Alvium driver initialised")
 
     ##########################################
-    ### NIR SETTINGS - REPLACING PARAMS.YAML
+    ### RGB SETTINGS - REPLACING PARAMS.YAML
     ##########################################
     cam_id = "DEV_1AB22C00A470"
     frequency = 20
