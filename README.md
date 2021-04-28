@@ -17,3 +17,4 @@ The whole point for the virtual environemnt is that I could not manage to use al
 1. Instead of a typical `config.yaml` file, you set up your config directly in the `scripts/*.py` files. Enter your camera ID as `cam_id`, desired frequency `frequency` and the camera calibration file `yaml_fname` 
 2. Install `Vimba_4_2` to a desired python as instructed by `VimbaPython/Install.sh`
 3. Make sure that `GENICAM_GENTL64_PATH` points to `path/2/vimba/Vimba_4_2/VimbaUSBTL/CTI/x86_64bit`
+4. This code has been tested on python 3.7 and python 3.8
