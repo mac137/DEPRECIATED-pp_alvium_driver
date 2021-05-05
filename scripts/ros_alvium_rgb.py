@@ -43,10 +43,11 @@ class Handler4ros:
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
                 # and bgr8 seems to work well
                 ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8")
-                # frame.get_timestamp()
-                ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
                 #TODO change the time to come from the alvium camera frame and not from Time.now()
                 time_stamp = rospy.Time.now()
+                # time_stamp = frame.get_timestamp()
+
+                ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
                 ros_img_msg.header.stamp = time_stamp
                 self.cam_info_params_msg.header.stamp = time_stamp
                 self.img_publisher.publish(ros_img_msg)
