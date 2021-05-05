@@ -92,7 +92,13 @@ def setup_camera(cam: Camera):
     with cam:
         # Enable auto exposure time setting if camera supports it
         try:
-            cam.ExposureAuto.set('Continuous')
+            # cam.ExposureAuto.set('Continuous')
+            cam.ExposureAuto.set(48233)
+            # if cam.get_id() == "DEV_1AB22C00A470":
+            #     cam.ExposureAuto.set(48233)
+            # elif cam.get_id() == "DEV_1AB22C00C28B":
+            #     cam.ExposureAuto.set(48233)
+
 
         except (AttributeError, VimbaFeatureError):
             pass
@@ -103,6 +109,15 @@ def setup_camera(cam: Camera):
 
         except (AttributeError, VimbaFeatureError):
             pass
+
+        if cam.get_id() == "DEV_1AB22C00C28B":
+        # Gain only for the NIR camera. IDK why but this way both cams work best
+            try:
+                cam.GainAuto.set('Continuous')
+
+            except (AttributeError, VimbaFeatureError):
+                pass
+
 
         # Try to adjust GeV packet size. This Feature is only available for GigE - Cameras.
         try:
