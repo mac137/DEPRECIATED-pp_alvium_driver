@@ -92,12 +92,21 @@ def setup_camera(cam: Camera):
     with cam:
         # Enable auto exposure time setting if camera supports it
         try:
-            #cam.ExposureAuto.set('Continuous')
-            cam.ExposureAuto.set(48233)
+            cam.ExposureAuto.set('Continuous')
+            cam.ExposureAutoMax.set(48233)
+
+            #### this works too but you dont get a max expusre limit which is quite bad
+            # cam.ExposureAuto.set('Off')
+            # cam.ExposureMode.set('Timed')
+            # cam.ExposureTime.set(48233)
+            #######
+
             # if cam.get_id() == "DEV_1AB22C00A470":
-            #     cam.ExposureAuto.set(48233)
+            #     cam.ExposureAuto.set('Continuous')
+            #     cam.ExposureAutoMax.set(48233)
             # elif cam.get_id() == "DEV_1AB22C00C28B":
-            #     cam.ExposureAuto.set(48233)
+            #     cam.ExposureAuto.set('Continuous')
+            #     cam.ExposureAutoMax.set(48233)
 
 
         except (AttributeError, VimbaFeatureError):

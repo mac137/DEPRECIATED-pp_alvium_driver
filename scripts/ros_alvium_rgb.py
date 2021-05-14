@@ -43,21 +43,25 @@ class Handler4ros:
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
                 # and bgr8 seems to work well
                 ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8")
-                #TODO change the time to come from the alvium camera frame and not from Time.now()
-                #time_stamp = rospy.Time.now()
-                time_stamp = frame.get_timestamp()
-                #print(time_stamp)
-                secs = time_stamp / 1000
-                nanosecs = (time_stamp % 1000) * 1000 * 1000
-                ros_time_stamp = rospy.Time() # secs=nanosecs=0
-                ros_time_stamp.secs = secs
-                ros_time_stamp.nsecs = nanosecs
-                
+                time_stamp = rospy.Time.now()
+                # ros_time_stamp = frame.get_timestamp()
+                # denominator = 1000000000 # for nano seconds which i 1e-9
+                # secs = int(ros_time_stamp //denominator)
+                # print(time_stamp.secs - 1621000800) # 1621000800 is unix time of 2021-05-15 at 15:00
+                # print(secs)
+                # print("diff is: " + str(time_stamp.secs - 1621000800 - secs))
+                # print("diff: " + str(time_stamp.secs-secs))
+                # nanosecs = (ros_time_stamp % denominator)
+                # print("diff is: " + str(time_stamp.nsecs - nanosecs))
+                # ros_time_stamp = rospy.Time() # secs=nanosecs=0
+                # ros_time_stamp.secs = secs
+                # ros_time_stamp.nsecs = nanosecs
+                # ros_img_msg.header.stamp = ros_time_stamp
+
+                ros_img_msg.header.stamp = time_stamp
+                self.cam_info_params_msg.header.stamp = time_stamp
+                # self.cam_info_params_msg.header.stamp = ros_time_stamp
                 ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
-                #ros_img_msg.header.stamp = time_stamp
-                ros_img_msg.header.stamp = ros_time_stamp
-                #self.cam_info_params_msg.header.stamp = time_stamp
-                self.cam_info_params_msg.header.stamp = ros_time_stamp
                 self.img_publisher.publish(ros_img_msg)
                 self.cam_info_publisher.publish(self.cam_info_params_msg)
 
@@ -125,7 +129,8 @@ def main(args):
     cam_id = "DEV_1AB22C00A470"
     frequency = 20
     cam_info = True
-    yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
+    #yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
+    yaml_fname = "/home/maciej/ros/py3_ws/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
     ##########################################
 
 
