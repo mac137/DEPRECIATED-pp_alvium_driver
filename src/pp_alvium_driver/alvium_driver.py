@@ -92,7 +92,7 @@ def setup_camera(cam: Camera):
     with cam:
         # Enable auto exposure time setting if camera supports it
         try:
-            # cam.ExposureAuto.set('Continuous')
+            #cam.ExposureAuto.set('Continuous')
             cam.ExposureAuto.set(48233)
             # if cam.get_id() == "DEV_1AB22C00A470":
             #     cam.ExposureAuto.set(48233)
@@ -101,6 +101,7 @@ def setup_camera(cam: Camera):
 
 
         except (AttributeError, VimbaFeatureError):
+            print("Error in setting exposure time.")
             pass
 
         # Enable white balancing if camera supports it
@@ -110,7 +111,7 @@ def setup_camera(cam: Camera):
         except (AttributeError, VimbaFeatureError):
             pass
 
-        if cam.get_id() == "DEV_1AB22C00C28B":
+        if cam.get_id() == "DEV_1AB22C00C28B" or cam.get_id() == "DEV_1AB22C00A470":
         # Gain only for the NIR camera. IDK why but this way both cams work best
             try:
                 cam.GainAuto.set('Continuous')

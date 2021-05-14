@@ -44,12 +44,20 @@ class Handler4ros:
                 # and bgr8 seems to work well
                 ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8")
                 #TODO change the time to come from the alvium camera frame and not from Time.now()
-                time_stamp = rospy.Time.now()
-                # time_stamp = frame.get_timestamp()
-
+                #time_stamp = rospy.Time.now()
+                time_stamp = frame.get_timestamp()
+                #print(time_stamp)
+                secs = time_stamp / 1000
+                nanosecs = (time_stamp % 1000) * 1000 * 1000
+                ros_time_stamp = rospy.Time() # secs=nanosecs=0
+                ros_time_stamp.secs = secs
+                ros_time_stamp.nsecs = nanosecs
+                
                 ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
-                ros_img_msg.header.stamp = time_stamp
-                self.cam_info_params_msg.header.stamp = time_stamp
+                #ros_img_msg.header.stamp = time_stamp
+                ros_img_msg.header.stamp = ros_time_stamp
+                #self.cam_info_params_msg.header.stamp = time_stamp
+                self.cam_info_params_msg.header.stamp = ros_time_stamp
                 self.img_publisher.publish(ros_img_msg)
                 self.cam_info_publisher.publish(self.cam_info_params_msg)
 
