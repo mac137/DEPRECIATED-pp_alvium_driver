@@ -25,6 +25,7 @@ class Handler4ros:
             self.cam_info_params_msg = Handler4ros.read_calibration_configuration(yaml_fname)
             if self.cam_info_params_msg is None:
                 rospy.logerr("Could not read from the calibration file!")
+        # self.f = open("./210517_time_diffs.txt", "a")
 
     def __call__(self, cam: Camera, frame: Frame):
         # ENTER_KEY_CODE = 13
@@ -42,8 +43,20 @@ class Handler4ros:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
                 # and bgr8 seems to work well
+                time_stamp_before = rospy.Time.now()
                 ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8")
-                time_stamp = rospy.Time.now()
+                raw_time_stamp = rospy.Time.now()
+                # diff_secs = time_stamp_before.secs - raw_time_stamp.secs
+                duration_diff = raw_time_stamp - time_stamp_before
+                # print(str(diff_secs))
+                # diff_nanosecs = time_stamp_before.nsecs - raw_time_stamp.nsecs
+                # print(str(diff_nanosecs))
+                # print(str(duration_diff))
+                # print(str(raw_time_stamp))
+                # print(str(raw_time_stamp-duration_diff))
+                # print(str(raw_time_stamp - (duration_diff/2)))
+                time_stamp = raw_time_stamp-(duration_diff/2)
+                # self.f.write(str(diff_nanosecs)+"\n")
                 # ros_time_stamp = frame.get_timestamp()
                 # denominator = 1000000000 # for nano seconds which i 1e-9
                 # secs = int(ros_time_stamp //denominator)
@@ -76,10 +89,12 @@ class Handler4ros:
     def handler_f(self, signal_received, frame):
         # Handle any cleanup here
         self.close_properly()
+        # self.f.close()
         # print('SIGINT or CTRL-C detected. Exiting gracefully')
         exit(0)
 
     def close_properly(self):
+        # self.f.close()
         self.shutdown_event.set()
         rospy.loginfo("Alvium camera's thread closing ...")
         return

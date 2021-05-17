@@ -43,7 +43,12 @@ class Handler4ros:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
                 # and bgr8 seems to work well
+                time_stamp_before = rospy.Time.now()
                 ros_img_msg = self.bridge.cv2_to_imgmsg(Handler4ros.resize_img(frame.as_opencv_image(), 2064, 1544), encoding="mono8")
+                raw_time_stamp = rospy.Time.now()
+                duration_diff = raw_time_stamp - time_stamp_before
+                time_stamp = raw_time_stamp - (duration_diff / 2)
+
                 # frame.get_timestamp()
                 ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
                 #TODO change the time to come from the alvium camera frame and not from Time.now()
@@ -123,7 +128,9 @@ def main(args):
     cam_id = "DEV_1AB22C00C28B"
     frequency = 60
     cam_info = True
-    yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210421_NIR.yml"
+    # yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210421_NIR.yml"
+    yaml_fname = "/home/maciej/ros/py3_ws/src/pp_alvium_driver/calib/210421_NIR.yml"
+
     ##########################################
 
     rospy.loginfo("Opening Vimba ...")
