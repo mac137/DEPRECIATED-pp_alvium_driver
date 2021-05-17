@@ -49,12 +49,10 @@ class Handler4ros:
                 duration_diff = raw_time_stamp - time_stamp_before
                 time_stamp = raw_time_stamp - (duration_diff / 2)
 
-                # frame.get_timestamp()
-                ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
-                #TODO change the time to come from the alvium camera frame and not from Time.now()
-                time_stamp = rospy.Time.now()
                 ros_img_msg.header.stamp = time_stamp
                 self.cam_info_params_msg.header.stamp = time_stamp
+
+                ros_img_msg.header.frame_id = self.cam_info_params_msg.header.frame_id
                 self.img_publisher.publish(ros_img_msg)
                 self.cam_info_publisher.publish(self.cam_info_params_msg)
 
