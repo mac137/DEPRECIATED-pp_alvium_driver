@@ -93,7 +93,18 @@ def setup_camera(cam: Camera):
         # Enable auto exposure time setting if camera supports it
         try:
             cam.ExposureAuto.set('Continuous')
-            cam.ExposureAutoMax.set(48233)
+            # this is the max value to get 20 Hz for rgb cam
+            # cam.ExposureAutoMax.set(48233)
+
+            # this is the value the best INDOOR trade-off (sharpeness-brightness of imgs)
+            # cam.ExposureAutoMax.set(5000)
+
+            # this is the value the best OUTDOOR trade-off (sharpeness-brightness of imgs)
+            cam.ExposureAutoMax.set(2200)
+            
+            # this is the minimum possible value for the camera
+            # cam.ExposureAutoMax.set(170)
+
 
             #### this works too but you dont get a max expusre limit which is quite bad
             # cam.ExposureAuto.set('Off')
