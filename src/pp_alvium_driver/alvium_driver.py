@@ -92,19 +92,24 @@ def setup_camera(cam: Camera):
     with cam:
         # Enable auto exposure time setting if camera supports it
         try:
-            cam.ExposureAuto.set('Continuous')
-            # this is the max value to get 20 Hz for rgb cam
-            # cam.ExposureAutoMax.set(48233)
+            # RGB cam
+            if cam.get_id() == "DEV_1AB22C00A470":
+                cam.ExposureAuto.set('Continuous')
+                # this is the max value to get 20 Hz for rgb cam
+                # cam.ExposureAutoMax.set(48233)
 
-            # this is the value the best INDOOR trade-off (sharpeness-brightness of imgs)
-            # cam.ExposureAutoMax.set(5000)
+                # this is the value the best INDOOR trade-off (sharpeness-brightness of imgs)
+                # cam.ExposureAutoMax.set(5000)
 
-            # this is the value the best OUTDOOR trade-off (sharpeness-brightness of imgs)
-            cam.ExposureAutoMax.set(2200)
-            
-            # this is the minimum possible value for the camera
-            # cam.ExposureAutoMax.set(170)
+                # this is the value the best OUTDOOR trade-off (sharpeness-brightness of imgs)
+                cam.ExposureAutoMax.set(2200)
 
+                # this is the minimum possible value for the camera
+                # cam.ExposureAutoMax.set(170)
+            # NIR cam
+            elif cam.get_id() == "DEV_1AB22C00C28B":
+                cam.ExposureAuto.set('Continuous')
+                cam.ExposureAutoMax.set(2200)
 
             #### this works too but you dont get a max expusre limit which is quite bad
             # cam.ExposureAuto.set('Off')
@@ -123,6 +128,32 @@ def setup_camera(cam: Camera):
         except (AttributeError, VimbaFeatureError):
             print("Error in setting exposure time.")
             pass
+
+        # change the Camera's Throughput limit to 450MB/s from the standard 200MB/s
+        try:
+            # RGB cam - must be 450MB/s to get 45 fps
+            if cam.get_id() == "DEV_1AB22C00A470":
+                cam.DeviceLinkThroughputLimit.set(450000000)
+            # NIR cam - must be 310.5MB/s to mimit the fps to 60
+            if cam.get_id() == "DEV_1AB22C00C28B":
+                cam.DeviceLinkThroughputLimit.set(310500000)
+
+        except (AttributeError, VimbaFeatureError):
+            print("Error in setting Camera's Throughput limit to 450MB/s.")
+            pass
+
+        # Controls the acquisition rate (in Hertz) at which the frames are captured
+        # try:
+        #     cam.AcquisitionFrameRateEnable.set('True')
+        #     # RGB cam
+        #     if cam.get_id() == "DEV_1AB22C00A470":
+        #         cam.AcquisitionFrameRate.set(45.0)
+        #     if cam.get_id() == "DEV_1AB22C00C28B":
+        #         cam.AcquisitionFrameRate.set(60.0)
+        #
+        # except (AttributeError, VimbaFeatureError):
+        #     print("Error in setting the acquisition rate (in Hertz).")
+        #     pass
 
         # Enable white balancing if camera supports it
         try:

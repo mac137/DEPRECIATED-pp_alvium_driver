@@ -104,16 +104,16 @@ class Handler4ros:
 
 def main(args):
 
-    try:
-        cam_id = str(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
-        frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
-        cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
-        if cam_info:
-            yaml_fname = str(rospy.get_param("/ros_alvium_driver/calibration_yaml"))
-        else:
-            yaml_fname = None
-    except:
-        rospy.logerr("Alvium camera driver couldn't load my config parameters")
+    # try:
+    #     cam_id = str(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
+    #     frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
+    #     cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
+    #     if cam_info:
+    #         yaml_fname = str(rospy.get_param("/ros_alvium_driver/calibration_yaml"))
+    #     else:
+    #         yaml_fname = None
+    # except:
+    #     rospy.logerr("Alvium camera driver couldn't load my config parameters")
 
     pub_img = rospy.Publisher('pp/nir_raw', Image, queue_size=1)
     pub_cam_info = rospy.Publisher('pp/nir_cam_info', CameraInfo, queue_size=1)

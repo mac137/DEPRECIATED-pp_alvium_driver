@@ -122,16 +122,16 @@ class Handler4ros:
 
 def main(args):
 
-    try:
-        cam_id = str(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
-        frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
-        cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
-        if cam_info:
-            yaml_fname = str(rospy.get_param("/ros_alvium_driver/calibration_yaml"))
-        else:
-            yaml_fname = None
-    except:
-        rospy.logerr("Alvium camera driver couldn't load my config parameters")
+    # try:
+    #     cam_id = str(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
+    #     frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
+    #     cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
+    #     if cam_info:
+    #         yaml_fname = str(rospy.get_param("/ros_alvium_driver/calibration_yaml"))
+    #     else:
+    #         yaml_fname = None
+    # except:
+    #     rospy.logerr("Alvium camera driver couldn't load my config parameters")
 
     pub_img = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
     pub_cam_info = rospy.Publisher('pp/rgb_cam_info', CameraInfo, queue_size=1)
@@ -142,7 +142,8 @@ def main(args):
     ### RGB SETTINGS - REPLACING PARAMS.YAML
     ##########################################
     cam_id = "DEV_1AB22C00A470"
-    frequency = 20
+    # frequency = 20
+    frequency = 45
     cam_info = True
     #yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
     # yaml_fname = "/home/maciej/ros/py3_ws/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
