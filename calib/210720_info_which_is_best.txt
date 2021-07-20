@@ -1,0 +1,1 @@
+210719_1_cam_static_param0 for rgb intrinic calibration along with 210720_rgb1 (extr_calib) work best. Alternatively, 210720_rgb3 (extr calib) works well with the same calibration file too
