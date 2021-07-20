@@ -5,6 +5,14 @@
     <node pkg="pp_alvium_driver" name="ros_alvium_rgb" type="ros_alvium_rgb.py" output="screen">
 <!--         <rosparam file="$(find pp_alvium_driver)/config/params_rgb.yaml" command="load"/> -->
 <!--         <remap from="pp/nir_raw" to="pp/rgb_raw"/> -->
+        <rosparam>
+        path2cam_calib_yaml: /home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/rgb1.yaml
+        camera_id: DEV_1AB22C00A470
+        frequency: 45
+        publish_camera_info: True
+        published_caminfo_topic: /pp/rgb_cam_info
+        published_img_topic: /pp/rgb_raw
+        </rosparam>
     </node>
 
 </launch>

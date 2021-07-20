@@ -122,39 +122,30 @@ class Handler4ros:
 
 def main(args):
 
-    # try:
-    #     cam_id = str(rospy.get_param("/ros_alvium_driver/rbg_cam_id"))
-    #     frequency = int(rospy.get_param("/ros_alvium_driver/rgb_frequency"))
-    #     cam_info = bool(rospy.get_param("/ros_alvium_driver/rbg_camera_info"))
-    #     if cam_info:
-    #         yaml_fname = str(rospy.get_param("/ros_alvium_driver/calibration_yaml"))
-    #     else:
-    #         yaml_fname = None
-    # except:
-    #     rospy.logerr("Alvium camera driver couldn't load my config parameters")
+    try:
+        yaml_fname = str(rospy.get_param("/ros_alvium_rgb/path2cam_calib_yaml"))
+        cam_id = str(rospy.get_param("/ros_alvium_rgb/camera_id"))
+        frequency = int(rospy.get_param("/ros_alvium_rgb/frequency"))
+        cam_info = bool(rospy.get_param("/ros_alvium_rgb/publish_camera_info"))
+        cam_info_topic = str(rospy.get_param("/ros_alvium_rgb/published_caminfo_topic"))
+        cam_img_topic = str(rospy.get_param("/ros_alvium_rgb/published_img_topic"))
 
-    pub_img = rospy.Publisher('pp/rgb_raw', Image, queue_size=1)
-    pub_cam_info = rospy.Publisher('pp/rgb_cam_info', CameraInfo, queue_size=1)
+    except:
+        text = "RGB camera driver could not get launch parameters"
+        rospy.logerr(text)
+        raise RuntimeError(text)
+
+    pub_img = rospy.Publisher(cam_img_topic, Image, queue_size=1)
+    pub_cam_info = rospy.Publisher(cam_info_topic, CameraInfo, queue_size=1)
     rospy.init_node('pp_alvium_python_driver', anonymous=True)
     rospy.loginfo("Alvium driver initialised")
 
-    ##########################################
-    ### RGB SETTINGS - REPLACING PARAMS.YAML
-    ##########################################
-    cam_id = "DEV_1AB22C00A470"
-    frequency = 45
-    cam_info = True
-    #yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
-    # yaml_fname = "/home/maciej/ros/py3_ws/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
-    yaml_fname = "../calib/rgb1.yml"
-    ##########################################
-
-
-    # cam_info works properly
-    # if cam_info:
-    #     rospy.loginfo("Got True")
-    # else:
-    #     rospy.loginfo("Got False")
+    # cam_id = "DEV_1AB22C00A470"
+    # frequency = 45
+    # cam_info = True
+    # #yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
+    # # yaml_fname = "/home/maciej/ros/py3_ws/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
+    # yaml_fname = "../calib/rgb3.yml"
 
 
     rospy.loginfo("Opening Vimba ...")
