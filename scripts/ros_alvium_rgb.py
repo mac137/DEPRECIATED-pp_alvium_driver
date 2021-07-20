@@ -142,12 +142,11 @@ def main(args):
     ### RGB SETTINGS - REPLACING PARAMS.YAML
     ##########################################
     cam_id = "DEV_1AB22C00A470"
-    # frequency = 20
     frequency = 45
     cam_info = True
     #yaml_fname = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
     # yaml_fname = "/home/maciej/ros/py3_ws/src/pp_alvium_driver/calib/210408_no_opt_constraints.yml"
-    yaml_fname = "../calib/210408_no_opt_constraints.yml"
+    yaml_fname = "../calib/rgb1.yml"
     ##########################################
 
 
