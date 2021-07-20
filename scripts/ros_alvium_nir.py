@@ -111,6 +111,7 @@ def main(args):
         cam_info = bool(rospy.get_param("/ros_alvium_nir/publish_camera_info"))
         cam_info_topic = str(rospy.get_param("/ros_alvium_nir/published_caminfo_topic"))
         cam_img_topic = str(rospy.get_param("/ros_alvium_nir/published_img_topic"))
+        max_exposure_time = int(rospy.get_param("/ros_alvium_nir/max_exposure_time"))
 
     except:
         text = "NIR camera driver could not get launch parameters"

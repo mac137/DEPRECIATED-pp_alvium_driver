@@ -129,6 +129,7 @@ def main(args):
         cam_info = bool(rospy.get_param("/ros_alvium_rgb/publish_camera_info"))
         cam_info_topic = str(rospy.get_param("/ros_alvium_rgb/published_caminfo_topic"))
         cam_img_topic = str(rospy.get_param("/ros_alvium_rgb/published_img_topic"))
+        max_exposure_time = int(rospy.get_param("/ros_alvium_rgb/max_exposure_time"))
 
     except:
         text = "RGB camera driver could not get launch parameters"
@@ -153,7 +154,7 @@ def main(args):
         with get_camera(cam_id) as cam:
 
             # Start Streaming, wait for five seconds, stop streaming
-            setup_camera(cam)
+            setup_camera(cam, max_exposure_time)
             handler = Handler4ros(pub_img, pub_cam_info, yaml_fname)
             # this handles CTRL+C to close the node properly
             signal(SIGINT, handler.handler_f)

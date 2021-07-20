@@ -88,13 +88,13 @@ def get_camera(camera_id: Optional[str]) -> Camera:
             return cams[0]
 
 
-def setup_camera(cam: Camera):
+def setup_camera(cam: Camera, max_exposure_time=0):
     with cam:
         # Enable auto exposure time setting if camera supports it
         try:
             # RGB cam
-            if cam.get_id() == "DEV_1AB22C00A470":
-                cam.ExposureAuto.set('Continuous')
+            # if cam.get_id() == "DEV_1AB22C00A470":
+            cam.ExposureAuto.set('Continuous')
                 # this is the max value to get 20 Hz for rgb cam
                 # cam.ExposureAutoMax.set(48233)
 
@@ -102,14 +102,14 @@ def setup_camera(cam: Camera):
                 # cam.ExposureAutoMax.set(5000)
 
                 # this is the value the best OUTDOOR trade-off (sharpeness-brightness of imgs)
-                cam.ExposureAutoMax.set(2200)
+            cam.ExposureAutoMax.set(max_exposure_time)
 
                 # this is the minimum possible value for the camera
                 # cam.ExposureAutoMax.set(170)
             # NIR cam
-            elif cam.get_id() == "DEV_1AB22C00C28B":
-                cam.ExposureAuto.set('Continuous')
-                cam.ExposureAutoMax.set(2200)
+            # elif cam.get_id() == "DEV_1AB22C00C28B":
+            cam.ExposureAuto.set('Continuous')
+            cam.ExposureAutoMax.set(max_exposure_time)
 
             #### this works too but you dont get a max expusre limit which is quite bad
             # cam.ExposureAuto.set('Off')
