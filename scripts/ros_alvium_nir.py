@@ -140,7 +140,7 @@ def main(args):
         with get_camera(cam_id) as cam:
 
             # Start Streaming, wait for five seconds, stop streaming
-            setup_camera(cam)
+            setup_camera(cam, max_exposure_time)
             handler = Handler4ros(pub_img, pub_cam_info, yaml_fname)
             # this handles CTRL+C to close the node properly
             signal(SIGINT, handler.handler_f)
