@@ -6,7 +6,7 @@
 <!--         <rosparam file="$(find pp_alvium_driver)/config/params_nir.yaml" command="load"/> -->
 <!--         <remap from="pp/rgb_raw" to="pp/nir_raw"/> -->
         <rosparam>
-        path2cam_calib_yaml: /home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210421_NIR.yml
+        path2cam_calib_yaml: /home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210722_nir.yaml
         camera_id: DEV_1AB22C00C28B
         frequency: 60
 <!--         2200 in max exposure time for both indoors and outdoors                 -->
