@@ -6,7 +6,7 @@
 <!--         <rosparam file="$(find pp_alvium_driver)/config/params_rgb.yaml" command="load"/> -->
 <!--         <remap from="pp/nir_raw" to="pp/rgb_raw"/> -->
         <rosparam>
-        path2cam_calib_yaml: /home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210719_1_cam_static_param0.yaml
+        path2cam_calib_yaml: /home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210719_rgb.yaml
         camera_id: DEV_1AB22C00A470
         frequency: 45
 <!--         2200 for outdoors and 5000 for indoors -->
