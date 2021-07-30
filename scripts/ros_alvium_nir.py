@@ -47,7 +47,7 @@ class Handler4ros:
                 ros_img_msg = self.bridge.cv2_to_imgmsg(Handler4ros.resize_img(frame.as_opencv_image(), 2064, 1544), encoding="mono8")
                 raw_time_stamp = rospy.Time.now()
                 duration_diff = raw_time_stamp - time_stamp_before
-                time_stamp = raw_time_stamp - (duration_diff / 2)
+                time_stamp = raw_time_stamp #- (duration_diff / 20)
 
                 ros_img_msg.header.stamp = time_stamp
                 self.cam_info_params_msg.header.stamp = time_stamp

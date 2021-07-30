@@ -55,7 +55,7 @@ class Handler4ros:
                 # print(str(raw_time_stamp))
                 # print(str(raw_time_stamp-duration_diff))
                 # print(str(raw_time_stamp - (duration_diff/2)))
-                time_stamp = raw_time_stamp-(duration_diff/2)
+                time_stamp = raw_time_stamp #-(duration_diff/20)
                 # self.f.write(str(diff_nanosecs)+"\n")
                 # ros_time_stamp = frame.get_timestamp()
                 # denominator = 1000000000 # for nano seconds which i 1e-9
