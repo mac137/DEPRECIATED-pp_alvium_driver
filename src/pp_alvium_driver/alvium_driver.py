@@ -88,33 +88,33 @@ def get_camera(camera_id: Optional[str]) -> Camera:
             return cams[0]
 
 
-def setup_camera(cam: Camera, max_exposure_time=0):
+def setup_camera(cam: Camera, exposure_time=0):
     with cam:
         # Enable auto exposure time setting if camera supports it
         try:
             # RGB cam
             # if cam.get_id() == "DEV_1AB22C00A470":
-            cam.ExposureAuto.set('Continuous')
+            # cam.ExposureAuto.set('Continuous')
                 # this is the max value to get 20 Hz for rgb cam
                 # cam.ExposureAutoMax.set(48233)
 
                 # this is the value the best INDOOR trade-off (sharpeness-brightness of imgs)
                 # cam.ExposureAutoMax.set(5000)
 
-                # this is the value the best OUTDOOR trade-off (sharpeness-brightness of imgs)
-            cam.ExposureAutoMax.set(max_exposure_time)
-
                 # this is the minimum possible value for the camera
                 # cam.ExposureAutoMax.set(170)
             # NIR cam
             # elif cam.get_id() == "DEV_1AB22C00C28B":
-            cam.ExposureAuto.set('Continuous')
-            cam.ExposureAutoMax.set(max_exposure_time)
+
+            # this works when max exposure needed
+            # cam.ExposureAuto.set('Continuous')
+            # cam.ExposureAutoMax.set(exposure_time)
 
             #### this works too but you dont get a max expusre limit which is quite bad
-            # cam.ExposureAuto.set('Off')
-            # cam.ExposureMode.set('Timed')
-            # cam.ExposureTime.set(48233)
+            # 210730: but set exposure time is good for calulating precise timestamp!!
+            cam.ExposureAuto.set('Off')
+            cam.ExposureMode.set('Timed')
+            cam.ExposureTime.set(exposure_time)
             #######
 
             # if cam.get_id() == "DEV_1AB22C00A470":
@@ -134,7 +134,7 @@ def setup_camera(cam: Camera, max_exposure_time=0):
             # RGB cam - must be 450MB/s to get 45 fps
             if cam.get_id() == "DEV_1AB22C00A470":
                 cam.DeviceLinkThroughputLimit.set(450000000)
-            # NIR cam - must be 310.5MB/s to mimit the fps to 60
+            # NIR cam - must be 310.5MB/s to limit the fps to 60
             if cam.get_id() == "DEV_1AB22C00C28B":
                 cam.DeviceLinkThroughputLimit.set(310500000)
 

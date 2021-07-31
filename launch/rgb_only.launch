@@ -10,7 +10,7 @@
         camera_id: DEV_1AB22C00A470
         frequency: 45
 <!--         2200 for outdoors and 5000 for indoors -->
-        max_exposure_time: 2200
+        exposure_time: 2200
 <!--         max_exposure_time: 5000 -->
         publish_camera_info: True
         published_caminfo_topic: /pp/rgb_cam_info
