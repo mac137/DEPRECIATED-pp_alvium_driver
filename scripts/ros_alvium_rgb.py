@@ -15,10 +15,11 @@ from pathlib import Path
 
 
 class Handler4ros:
-    def __init__(self, img_publisher, cam_info_publisher, yaml_fname):
+    def __init__(self, img_publisher, cam_info_publisher, yaml_fname, max_exposure_time):
         self.shutdown_event = threading.Event()
         self.img_publisher = img_publisher
         self.cam_info_publisher = cam_info_publisher
+        self.half_exposure_time_nanoseconds = rospy.Duration(0, (max_exposure_time/2)*1000) # *1000 to convert to nanoseconds (10^-9)
         self.bridge = CvBridge()
         if yaml_fname is not None:
             rospy.loginfo("Reading parameters from the calibration file: " + yaml_fname)
@@ -28,13 +29,7 @@ class Handler4ros:
         # self.f = open("./210517_time_diffs.txt", "a")
 
     def __call__(self, cam: Camera, frame: Frame):
-        # ENTER_KEY_CODE = 13
-        #
-        # key = cv2.waitKey(1)
-        # if key == ENTER_KEY_CODE:
-        #     # self.shutdown_event.set()
-        #     # return
-        #     self.close_properly()
+        raw_time_stamp = rospy.Time.now()
 
         # elif frame.get_status() == FrameStatus.Complete:
         if frame.get_status() == FrameStatus.Complete:
@@ -43,11 +38,11 @@ class Handler4ros:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
                 # and bgr8 seems to work well
-                time_stamp_before = rospy.Time.now()
+                # time_stamp_before = rospy.Time.now()
                 ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8")
-                raw_time_stamp = rospy.Time.now()
+                # raw_time_stamp = rospy.Time.now()
                 # diff_secs = time_stamp_before.secs - raw_time_stamp.secs
-                duration_diff = raw_time_stamp - time_stamp_before
+                # duration_diff = raw_time_stamp - time_stamp_before
                 # print(str(diff_secs))
                 # diff_nanosecs = time_stamp_before.nsecs - raw_time_stamp.nsecs
                 # print(str(diff_nanosecs))
@@ -55,7 +50,8 @@ class Handler4ros:
                 # print(str(raw_time_stamp))
                 # print(str(raw_time_stamp-duration_diff))
                 # print(str(raw_time_stamp - (duration_diff/2)))
-                time_stamp = raw_time_stamp #-(duration_diff/20)
+                # time_stamp = raw_time_stamp #-(duration_diff/20)
+                time_stamp = raw_time_stamp - self.half_exposure_time_nanoseconds
                 # self.f.write(str(diff_nanosecs)+"\n")
                 # ros_time_stamp = frame.get_timestamp()
                 # denominator = 1000000000 # for nano seconds which i 1e-9
@@ -155,7 +151,7 @@ def main(args):
 
             # Start Streaming, wait for five seconds, stop streaming
             setup_camera(cam, max_exposure_time)
-            handler = Handler4ros(pub_img, pub_cam_info, yaml_fname)
+            handler = Handler4ros(pub_img, pub_cam_info, yaml_fname, max_exposure_time)
             # this handles CTRL+C to close the node properly
             signal(SIGINT, handler.handler_f)
             rospy.loginfo("Alvium camera of id={} opened with intended fps={}".format(cam_id, frequency))
