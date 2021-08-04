@@ -1,0 +1,730 @@
+execve("./ListCameras", ["./ListCameras"], 0x7ffd24b4de20 /* 67 vars */) = 0
+brk(NULL)                               = 0x55d61550d000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffcd88f7040) = -1 EINVAL (Invalid argument)
+readlink("/proc/self/exe", "/home/maciej/vimba/Vimba_4_2/Vim"..., 4096) = 98
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5cabb40000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/tls/x86_64/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib/tls/x86_64/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/tls/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib/tls/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/tls/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib/tls/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/tls/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib/tls", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/x86_64/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib/x86_64/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/ros1_wss/pp_collector/devel/lib", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/opt/ros/noetic/lib/tls/x86_64/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib/tls/x86_64/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/tls/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib/tls/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/tls/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib/tls/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/tls/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib/tls", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/x86_64/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib/x86_64/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/opt/ros/noetic/lib", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls/x86_64/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls/x86_64/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/tls", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/x86_64/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/x86_64/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/x86_64/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat("/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/x86_64", 0x7ffcd88f6290) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libVimbaCPP.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\376\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=332488, ...}) = 0
+mmap(NULL, 2427608, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab8ef000
+mprotect(0x7f5cab93d000, 2093056, PROT_NONE) = 0
+mmap(0x7f5cabb3c000, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4d000) = 0x7f5cabb3c000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=249976, ...}) = 0
+mmap(NULL, 249976, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f5cab8b1000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\240\341\t\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=1952928, ...}) = 0
+mmap(NULL, 1968128, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab6d0000
+mprotect(0x7f5cab766000, 1286144, PROT_NONE) = 0
+mmap(0x7f5cab766000, 983040, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x96000) = 0x7f5cab766000
+mmap(0x7f5cab856000, 299008, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x186000) = 0x7f5cab856000
+mmap(0x7f5cab8a0000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1cf000) = 0x7f5cab8a0000
+mmap(0x7f5cab8ae000, 10240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5cab8ae000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\3405\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=104984, ...}) = 0
+mmap(NULL, 107592, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab6b5000
+mmap(0x7f5cab6b8000, 73728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f5cab6b8000
+mmap(0x7f5cab6ca000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x15000) = 0x7f5cab6ca000
+mmap(0x7f5cab6ce000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f5cab6ce000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360q\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\t\233\222%\274\260\320\31\331\326\10\204\276X>\263"..., 68, 880) = 68
+fstat(3, {st_mode=S_IFREG|0755, st_size=2029224, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\t\233\222%\274\260\320\31\331\326\10\204\276X>\263"..., 68, 880) = 68
+mmap(NULL, 2036952, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab4c3000
+mprotect(0x7f5cab4e8000, 1847296, PROT_NONE) = 0
+mmap(0x7f5cab4e8000, 1540096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x25000) = 0x7f5cab4e8000
+mmap(0x7f5cab660000, 303104, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19d000) = 0x7f5cab660000
+mmap(0x7f5cab6ab000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7f5cab6ab000
+mmap(0x7f5cab6b1000, 13528, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5cab6b1000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libVimbaC.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \"\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=883736, ...}) = 0
+mmap(NULL, 2980904, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab1eb000
+mprotect(0x7f5cab2bd000, 2093056, PROT_NONE) = 0
+mmap(0x7f5cab4bc000, 28672, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd1000) = 0x7f5cab4bc000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libpthread.so.0", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/libpthread.so.0", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/libpthread.so.0", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\201\0\0\0\0\0\0"..., 832) = 832
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\345Ga\367\265T\320\374\301V)Yf]\223\337"..., 68, 824) = 68
+fstat(3, {st_mode=S_IFREG|0755, st_size=157224, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5cab1e9000
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\345Ga\367\265T\320\374\301V)Yf]\223\337"..., 68, 824) = 68
+mmap(NULL, 140408, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab1c6000
+mmap(0x7f5cab1cd000, 69632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x7000) = 0x7f5cab1cd000
+mmap(0x7f5cab1de000, 20480, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f5cab1de000
+mmap(0x7f5cab1e3000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1c000) = 0x7f5cab1e3000
+mmap(0x7f5cab1e5000, 13432, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5cab1e5000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libm.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/libm.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/libm.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300\363\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=1369352, ...}) = 0
+mmap(NULL, 1368336, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab077000
+mmap(0x7f5cab086000, 684032, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf000) = 0x7f5cab086000
+mmap(0x7f5cab12d000, 618496, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb6000) = 0x7f5cab12d000
+mmap(0x7f5cab1c4000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x14c000) = 0x7f5cab1c4000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/libdl.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \22\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=18816, ...}) = 0
+mmap(NULL, 20752, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab071000
+mmap(0x7f5cab072000, 8192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1000) = 0x7f5cab072000
+mmap(0x7f5cab074000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f5cab074000
+mmap(0x7f5cab075000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f5cab075000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaCPP/Examples/ListCameras/Build/Make/binary/x86_64bit/librt.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/maciej/ros1_wss/pp_collector/devel/lib/librt.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/opt/ros/noetic/lib/librt.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/librt.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 7\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=40040, ...}) = 0
+mmap(NULL, 44000, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5cab066000
+mprotect(0x7f5cab069000, 24576, PROT_NONE) = 0
+mmap(0x7f5cab069000, 16384, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f5cab069000
+mmap(0x7f5cab06d000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x7000) = 0x7f5cab06d000
+mmap(0x7f5cab06f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8000) = 0x7f5cab06f000
+close(3)                                = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5cab064000
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5cab061000
+arch_prctl(ARCH_SET_FS, 0x7f5cab061740) = 0
+mprotect(0x7f5cab6ab000, 12288, PROT_READ) = 0
+mprotect(0x7f5cab1e3000, 4096, PROT_READ) = 0
+mprotect(0x7f5cab06f000, 4096, PROT_READ) = 0
+mprotect(0x7f5cab075000, 4096, PROT_READ) = 0
+mprotect(0x7f5cab1c4000, 4096, PROT_READ) = 0
+mprotect(0x7f5cab6ce000, 4096, PROT_READ) = 0
+mprotect(0x7f5cab8a0000, 45056, PROT_READ) = 0
+mprotect(0x55d614f88000, 4096, PROT_READ) = 0
+mprotect(0x7f5cabb6f000, 4096, PROT_READ) = 0
+munmap(0x7f5cab8b1000, 249976)          = 0
+set_tid_address(0x7f5cab061a10)         = 6111
+set_robust_list(0x7f5cab061a20, 24)     = 0
+rt_sigaction(SIGRTMIN, {sa_handler=0x7f5cab1cdbf0, sa_mask=[], sa_flags=SA_RESTORER|SA_SIGINFO, sa_restorer=0x7f5cab1db3c0}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {sa_handler=0x7f5cab1cdc90, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART|SA_SIGINFO, sa_restorer=0x7f5cab1db3c0}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+brk(NULL)                               = 0x55d61550d000
+brk(0x55d61552e000)                     = 0x55d61552e000
+times(NULL)                             = 1718115459
+futex(0x7f5cab4c2874, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+stat("./VimbaC.xml", 0x7ffcd88f6ef0)    = -1 ENOENT (No such file or directory)
+futex(0x7f5cab8ae6bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x7f5cab8ae6c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+stat("/tmp", {st_mode=S_IFDIR|S_ISVTX|0777, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/tmp/VimbaCPP.log", O_WRONLY|O_CREAT|O_APPEND, 0666) = 3
+lseek(3, 0, SEEK_END)                   = 0
+fstat(1, {st_mode=S_IFREG|0664, st_size=19201, ...}) = 0
+openat(AT_FDCWD, "./", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 4
+fstat(4, {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+brk(0x55d615553000)                     = 0x55d615553000
+getdents64(4, /* 6 entries */, 32768)   = 200
+getdents64(4, /* 0 entries */, 32768)   = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaUSBTL/CTI/x86_64bit", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 5
+fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+getdents64(5, /* 4 entries */, 32768)   = 128
+getdents64(5, /* 0 entries */, 32768)   = 0
+futex(0x7f5cab0760c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaUSBTL/CTI/x86_64bit/VimbaUSBTL.cti", O_RDONLY|O_CLOEXEC) = 6
+read(6, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\254\21\0\0\0\0\0"..., 832) = 832
+fstat(6, {st_mode=S_IFREG|0644, st_size=6887016, ...}) = 0
+mmap(NULL, 8996480, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 6, 0) = 0x7f5caa7cc000
+mprotect(0x7f5caadd6000, 2097152, PROT_NONE) = 0
+mmap(0x7f5caafd6000, 552960, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x60a000) = 0x7f5caafd6000
+mmap(0x7f5cab05d000, 13952, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5cab05d000
+close(6)                                = 0
+openat(AT_FDCWD, "/home/maciej/vimba/Vimba_4_2/VimbaUSBTL/CTI/x86_64bit/VimbaUSBTL.xml", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0644, st_size=2798, ...}) = 0
+fstat(6, {st_mode=S_IFREG|0644, st_size=2798, ...}) = 0
+lseek(6, 0, SEEK_SET)                   = 0
+read(6, "<?xml version=\"1.0\" standalone=\""..., 2798) = 2798
+lseek(6, 2798, SEEK_SET)                = 2798
+close(6)                                = 0
+brk(0x55d615574000)                     = 0x55d615574000
+mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5cab8cd000
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca9fcb000
+mprotect(0x7f5ca9fcc000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5caa7cafb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6112], tls=0x7f5caa7cb700, child_tidptr=0x7f5caa7cb9d0) = 6112
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca97ca000
+mprotect(0x7f5ca97cb000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5ca9fc9fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6113], tls=0x7f5ca9fca700, child_tidptr=0x7f5ca9fca9d0) = 6113
+openat(AT_FDCWD, "/dev/bus/usb", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 6
+fstat(6, {st_mode=S_IFDIR|0755, st_size=240, ...}) = 0
+getdents64(6, /* 12 entries */, 32768)  = 288
+close(6)                                = 0
+uname({sysname="Linux", nodename="u20", ...}) = 0
+stat("/sys/bus/usb/devices", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+socket(AF_NETLINK, SOCK_RAW|SOCK_CLOEXEC|SOCK_NONBLOCK, NETLINK_KOBJECT_UEVENT) = 6
+bind(6, {sa_family=AF_NETLINK, nl_pid=0, nl_groups=0x000001}, 12) = 0
+setsockopt(6, SOL_SOCKET, SO_PASSCRED, [1], 4) = 0
+pipe([7, 8])                            = 0
+fcntl(7, F_GETFD)                       = 0
+fcntl(7, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(8, F_GETFD)                       = 0
+fcntl(8, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(8, F_GETFL)                       = 0x1 (flags O_WRONLY)
+fcntl(8, F_SETFL, O_WRONLY|O_NONBLOCK)  = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca8fc9000
+mprotect(0x7f5ca8fca000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5ca97c8fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6114], tls=0x7f5ca97c9700, child_tidptr=0x7f5ca97c99d0) = 6114
+openat(AT_FDCWD, "/sys/bus/usb/devices", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 9
+fstat(9, {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+getdents64(9, /* 32 entries */, 32768)  = 904
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb5/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "5\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb5/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb5/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "480\n", 4096)                 = 4
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb5/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\0\2\t\0\1@k\35\2\0\10\5\3\2\1\1\t\2\31\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 43
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb3/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "3\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb3/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb3/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "480\n", 4096)                 = 4
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb3/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\0\2\t\0\1@k\35\2\0\10\5\3\2\1\1\t\2\31\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 43
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb10/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "10\n", 4096)                  = 3
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb10/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb10/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "10000\n", 4096)               = 6
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb10/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\20\3\t\0\3\tk\35\3\0\10\5\3\2\1\1\t\2\37\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 49
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb1/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb1/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb1/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "480\n", 4096)                 = 4
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb1/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\0\2\t\0\1@k\35\2\0\10\5\3\2\1\1\t\2\31\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 43
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb8/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "8\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb8/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb8/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "10000\n", 4096)               = 6
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb8/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\20\3\t\0\3\tk\35\3\0\10\5\3\2\1\1\t\2\37\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 49
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb6/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "6\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb6/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb6/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "10000\n", 4096)               = 6
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb6/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\20\3\t\0\3\tk\35\3\0\10\5\3\2\1\1\t\2\37\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 49
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/4-3/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "4\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/4-3/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "2\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/4-3/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "5000\n", 4096)                = 5
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/4-3/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1 \3\357\2\1\t\262\32\1\0\0\1\2\3\4\1\t\2^\0\2\1\0\300p\10\v\0\2\357"..., 1024) = 112
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb4/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "4\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb4/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb4/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "10000\n", 4096)               = 6
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb4/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\20\3\t\0\3\tk\35\3\0\10\5\3\2\1\1\t\2\37\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 49
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-6/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "5\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-6/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "3\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-6/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1.5\n", 4096)                 = 4
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-6/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\0\2\0\0\0\10<A\7!\4\1\1\2\0\1\t\2\"\0\1\1\0\2402\t\4\0\0\1"..., 1024) = 52
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb4/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "4\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb4/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb2/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "2\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb2/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb2/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "10000\n", 4096)               = 6
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb2/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\20\3\t\0\3\tk\35\3\0\10\5\3\2\1\1\t\2\37\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 49
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-2/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "5\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-2/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "2\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-2/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "12\n", 4096)                  = 3
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/5-2/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\1\2\340\1\1@\207\200)\0\1\0\0\0\0\1\t\2\310\0\2\1\0\3402\t\4\0\0\3"..., 1024) = 218
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb9/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "9\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb9/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb9/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "480\n", 4096)                 = 4
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb9/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\0\2\t\0\1@k\35\2\0\10\5\3\2\1\1\t\2\31\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 43
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/3-1/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "3\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/3-1/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "2\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/3-1/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1.5\n", 4096)                 = 4
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/3-1/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\0\2\0\0\0\10<A\0260\0)\0\2\0\1\t\2\"\0\1\1\0\2402\t\4\0\0\1"..., 1024) = 52
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb7/busnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "7\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb7/devnum", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "1\n", 4096)                   = 2
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb7/speed", O_RDONLY|O_CLOEXEC) = 10
+fcntl(10, F_GETFL)                      = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fstat(10, {st_mode=S_IFREG|0444, st_size=4096, ...}) = 0
+read(10, "480\n", 4096)                 = 4
+close(10)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/usb7/descriptors", O_RDONLY|O_CLOEXEC) = 10
+read(10, "\22\1\0\2\t\0\1@k\35\2\0\10\5\3\2\1\1\t\2\31\0\1\1\0\340\0\t\4\0\0\1"..., 1024) = 43
+close(10)                               = 0
+getdents64(9, /* 0 entries */, 32768)   = 0
+close(9)                                = 0
+pipe([9, 10])                           = 0
+fcntl(9, F_GETFD)                       = 0
+fcntl(9, F_SETFD, FD_CLOEXEC)           = 0
+fcntl(10, F_GETFD)                      = 0
+fcntl(10, F_SETFD, FD_CLOEXEC)          = 0
+fcntl(10, F_GETFL)                      = 0x1 (flags O_WRONLY)
+fcntl(10, F_SETFL, O_WRONLY|O_NONBLOCK) = 0
+write(10, "\1", 1)                      = 1
+timerfd_create(CLOCK_MONOTONIC, TFD_CLOEXEC|TFD_NONBLOCK) = 11
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca87c8000
+mprotect(0x7f5ca87c9000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5ca8fc7fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6115], tls=0x7f5ca8fc8700, child_tidptr=0x7f5ca8fc89d0) = 6115
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca37ff000
+mprotect(0x7f5ca3800000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5ca3ffefb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6116], tls=0x7f5ca3fff700, child_tidptr=0x7f5ca3fff9d0) = 6116
+recvmsg(6, {msg_namelen=12}, 0)         = -1 EAGAIN (Resource temporarily unavailable)
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca2ffe000
+mprotect(0x7f5ca2fff000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5ca37fdfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6117], tls=0x7f5ca37fe700, child_tidptr=0x7f5ca37fe9d0) = 6117
+openat(AT_FDCWD, "/dev/bus/usb/004/002", O_RDWR|O_CLOEXEC) = 12
+ioctl(12, USBDEVFS_GET_CAPABILITIES, 0x55d615541b2c) = 0
+write(10, "\1", 1)                      = 1
+futex(0x55d61554e6f0, FUTEX_WAKE_PRIVATE, 1) = 1
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=519574000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554eab0) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=519670000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554ed40) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=519738000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554efc0) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=519797000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554f240) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=519854000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554f3b0) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=519911000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554f440) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=519967000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554f4d0) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=520024000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554f5c0) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+timerfd_settime(11, TFD_TIMER_ABSTIME, {it_interval={tv_sec=0, tv_nsec=0}, it_value={tv_sec=1586, tv_nsec=520082000}}, NULL) = 0
+ioctl(12, USBDEVFS_SUBMITURB, 0x55d61554f630) = 0
+futex(0x55d615541df0, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615541da0, FUTEX_WAKE_PRIVATE, 1) = 0
+write(10, "\1", 1)                      = 1
+futex(0x55d61554e6f0, FUTEX_WAKE_PRIVATE, 1) = 1
+close(12)                               = 0
+futex(0x55d61554e6e8, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d61554e698, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d61556327c, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d615563228, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d6155633a8, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615563228, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615563228, FUTEX_WAKE_PRIVATE, 1) = 0
+clone(child_stack=0x7f5ca37fdfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6118], tls=0x7f5ca37fe700, child_tidptr=0x7f5ca37fe9d0) = 6118
+openat(AT_FDCWD, "/dev/bus/usb/004/002", O_RDWR|O_CLOEXEC) = 12
+ioctl(12, USBDEVFS_GET_CAPABILITIES, 0x55d615541b2c) = 0
+write(10, "\1", 1)                      = 1
+futex(0x55d61554e6f0, FUTEX_WAKE_PRIVATE, 1) = 1
+openat(AT_FDCWD, "/sys/bus/usb/devices/4-3/bConfigurationValue", O_RDONLY|O_CLOEXEC) = 13
+read(13, "1\n", 5)                      = 2
+close(13)                               = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/4-3/bConfigurationValue", O_RDONLY|O_CLOEXEC) = 13
+read(13, "1\n", 5)                      = 2
+close(13)                               = 0
+ioctl(12, USBDEVFS_CLAIMINTERFACE, 0x7ffcd88f4d1c) = 0
+openat(AT_FDCWD, "/sys/bus/usb/devices/4-3/bConfigurationValue", O_RDONLY|O_CLOEXEC) = 13
+read(13, "1\n", 5)                      = 2
+close(13)                               = 0
+ioctl(12, USBDEVFS_CLAIMINTERFACE, 0x7ffcd88f4d1c) = 0
+ioctl(12, USBDEVFS_RELEASEINTERFACE, 0x7ffcd88f510c) = 0
+ioctl(12, USBDEVFS_RELEASEINTERFACE, 0x7ffcd88f510c) = 0
+write(10, "\1", 1)                      = 1
+futex(0x55d61554e6f0, FUTEX_WAKE_PRIVATE, 1) = 1
+close(12)                               = 0
+futex(0x55d61554e6ec, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d61554e698, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615563278, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d615563228, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d6155639b8, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615563228, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615563228, FUTEX_WAKE_PRIVATE, 1) = 0
+clone(child_stack=0x7f5ca37fdfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6119], tls=0x7f5ca37fe700, child_tidptr=0x7f5ca37fe9d0) = 6119
+brk(0x55d615595000)                     = 0x55d615595000
+futex(0x7f5cab4c2c0c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+sched_get_priority_min(SCHED_FIFO)      = 1
+sched_get_priority_max(SCHED_FIFO)      = 99
+geteuid()                               = 1000
+clone(child_stack=0x7f5ca2ffcfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6121], tls=0x7f5ca2ffd700, child_tidptr=0x7f5ca2ffd9d0) = 6121
+futex(0x55d615557e90, FUTEX_WAKE_PRIVATE, 1) = 1
+geteuid()                               = 1000
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca1ffc000
+mprotect(0x7f5ca1ffd000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5ca27fbfb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6122], tls=0x7f5ca27fc700, child_tidptr=0x7f5ca27fc9d0) = 6122
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+geteuid()                               = 1000
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f5ca17fb000
+mprotect(0x7f5ca17fc000, 8388608, PROT_READ|PROT_WRITE) = 0
+clone(child_stack=0x7f5ca1ffafb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[6123], tls=0x7f5ca1ffb700, child_tidptr=0x7f5ca1ffb9d0) = 6123
+futex(0x55d6155587d0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d61555af68, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d61555adc0, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x55d615555c98, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d61556e5b0, FUTEX_WAKE_PRIVATE, 1) = 1
+close(4)                                = 0
+close(5)                                = 0
+futex(0x55d615558878, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d6155587d0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d61555adc0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555c9c, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001418, FUTEX_WAIT_PRIVATE, 0, NULL) = -1 EAGAIN (Resource temporarily unavailable)
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x55d615555c98, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555c9c, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c00141c, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x55d615555c98, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001418, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x55d615555c9c, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555c98, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555c9c, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c00141c, FUTEX_WAIT_PRIVATE, 0, NULL) = -1 EAGAIN (Resource temporarily unavailable)
+futex(0x7f5c8c001100, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x7f5c98000ef0, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x7f5c98000ea0, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d61554f0a8, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615576e68, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, {tv_sec=1617803202, tv_nsec=662785345}, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x55d615576dc0, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x7f5c84000f90, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x7f5c84000f40, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c00a078, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x7f5c8c010648, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 0, {tv_sec=1617803202, tv_nsec=662873360}, FUTEX_BITSET_MATCH_ANY) = 0
+futex(0x7f5c8c0105a0, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x55d615555c98, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d615555bf0, FUTEX_WAKE_PRIVATE, 1) = 1
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=100000000}, 0x7ffcd88f6c60) = 0
+futex(0x55d615563d30, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d615563d34, FUTEX_WAIT_PRIVATE, 0, NULL) = -1 EAGAIN (Resource temporarily unavailable)
+futex(0x55d615563ce0, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x7f5cab8cd070, FUTEX_WAKE, 2147483647) = 1
+futex(0x7f5cab8cd074, FUTEX_WAIT, 0, NULL) = 0
+futex(0x7f5cab8cd020, FUTEX_WAKE, 1)    = 0
+futex(0x55d61554b148, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d61554b0f8, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d615555488, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d61554b0f8, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55d61554b0f8, FUTEX_WAKE_PRIVATE, 1) = 0
+munmap(0x7f5cab8cd000, 139264)          = 0
+write(10, "\1", 1)                      = 1
+futex(0x55d61554ad58, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d61554ad08, FUTEX_WAKE_PRIVATE, 1) = 0
+poll([{fd=9, events=POLLIN}, {fd=11, events=POLLIN}], 2, 0) = 0 (Timeout)
+write(10, "\1", 1)                      = 1
+close(9)                                = 0
+close(10)                               = 0
+close(11)                               = 0
+write(8, "\1", 1)                       = 1
+futex(0x7f5ca97c99d0, FUTEX_WAIT, 6114, NULL) = 0
+munmap(0x7f5ca2ffe000, 8392704)         = 0
+close(6)                                = 0
+close(7)                                = 0
+close(8)                                = 0
+futex(0x55d615568cc8, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+futex(0x55d615568ccc, FUTEX_WAIT_PRIVATE, 0, NULL) = 0
+futex(0x55d615568c78, FUTEX_WAKE_PRIVATE, 1) = 0
+munmap(0x7f5caa7cc000, 8996480)         = 0
+futex(0x55d61555887c, FUTEX_WAKE_PRIVATE, 2147483647) = 1
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=100000000}, 0x7ffcd88f6c60) = 0
+munmap(0x7f5ca9fcb000, 8392704)         = 0
+write(1, "\n///////////////////////////////"..., 355
+//////////////////////////////////////
+/// Vimba API List Cameras Example ///
+//////////////////////////////////////
+
+Vimba C++ API Version 1.8.2
+Cameras found: 1
+
+/// Camera Name    : Allied Vision 1800 U-319c
+/// Model Name     : 1800 U-319c
+/// Camera ID      : DEV_1AB22C00A470
+/// Serial Number  : 00WHC
+/// @ Interface ID : VimbaUSBInterface_0x0
+
+
+) = 355
+close(3)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++

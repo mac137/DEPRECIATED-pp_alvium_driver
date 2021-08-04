@@ -12,7 +12,27 @@
 
   <depend>message_generation</depend>
   <depend>message_runtime</depend>
-<!--  <depend>roscpp</depend>-->
+  <depend>roscpp</depend>
   <depend>rospy</depend>
   <depend>sensor_msgs</depend>
+<!--  <depend>rosbag</depend>-->
+  <depend>cv_bridge</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>camera_info_manager</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>std_msgs</depend>
+  <depend>polled_camera</depend>
+
+
+
+
+  <!--  <depend>pcl_conversions</depend>-->
+<!--  <depend>pcl_ros</depend>-->
+<!--  <depend>libpcl-all-dev</depend>-->
+<!--  <depend>libpcl-all</depend>-->
+  <depend>image_geometry</depend>
+  <depend>image_transport</depend>
+  <depend>image_view</depend>
+<!--  <depend>tf</depend>-->
+<!--  <depend>tf_conversions</depend>-->
 </package>
