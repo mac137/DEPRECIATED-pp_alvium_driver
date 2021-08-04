@@ -44,7 +44,7 @@ MonoCamera::MonoCamera(ros::NodeHandle& nh, ros::NodeHandle& nhp) : nh_(nh), nhp
   api_.start();
 
   // Set the image publisher before the streaming
-  pub_  = it_.advertiseCamera("image_raw",  1);
+  pub_  = it_.advertiseCamera("rgb_raw",  1);
 
   // Set the frame callback
   cam_.setCallback(boost::bind(&avt_vimba_camera::MonoCamera::frameCallback, this, _1));
@@ -56,6 +56,9 @@ MonoCamera::MonoCamera(ros::NodeHandle& nh, ros::NodeHandle& nhp) : nh_(nh), nhp
   std::string frame_id;
   nhp_.param("frame_id", frame_id, std::string(""));
   nhp_.param("show_debug_prints", show_debug_prints_, false);
+    ip_ = "DEV_1AB22C00A470";
+    frame_id = "pp_rgb";
+    camera_info_url_ = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210719_rgb.yaml";
 
   // Set camera info manager
   info_man_  = boost::shared_ptr<camera_info_manager::CameraInfoManager>(new camera_info_manager::CameraInfoManager(nhp_, frame_id, camera_info_url_));
@@ -98,13 +101,12 @@ void MonoCamera::configure(Config& newconfig, uint32_t level) {
   try {
     // resolve frame ID using tf_prefix parameter
     if (newconfig.frame_id == "") {
-      newconfig.frame_id = "camera";
+      newconfig.frame_id = "pp";
     }
     // The camera already stops & starts acquisition
     // so there's no problem on changing any feature.
     if (!cam_.isOpened()) {
       cam_.start(ip_, guid_, show_debug_prints_);
-//        cam_.start();
     }
 
     Config config = newconfig;

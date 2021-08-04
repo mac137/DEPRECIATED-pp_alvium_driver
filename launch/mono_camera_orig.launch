@@ -1,6 +1,6 @@
 <launch>
   <arg name="name" default="camera" doc="The name of the camera"/>
-  <arg name="ip" default="" doc="The IP for the camera to connect to"/>
+  <arg name="ip" default="DEV_1AB22C00A470" doc="The IP for the camera to connect to"/>
   <arg name="guid" default="" doc="The GUID for the camera to connect to"/>
   <arg name="frame_id" default="pp_rgb" doc="The frame id of the camera"/>
   <arg name="camera_info_url" default="file://$(find pp_alvium_driver)/calib/210719_rgb.yaml"/>
@@ -9,7 +9,7 @@
   <arg name="trigger_source" default="FixedRate"/>
   <arg name="acquisition_mode" default="Continuous"/>
   <arg name="acquisition_rate" default="10" doc="Camera framerate (Hz)"/>
-  <arg name="pixel_format" default="BayerRG8" doc="Image format"/>
+  <arg name="pixel_format" default="RGB8" doc="Image format"/>
   <arg name="exposure" default="2200" doc="Exposure (us)"/>
   <arg name="exposure_auto" default="Continuous"/>
   <arg name="gain" default="0" doc="Gain (dB)"/>

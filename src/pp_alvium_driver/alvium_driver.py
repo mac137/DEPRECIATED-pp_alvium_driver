@@ -188,6 +188,7 @@ def setup_camera(cam: Camera, exposure_time=0):
 
         if color_fmts:
             cam.set_pixel_format(color_fmts[0])
+            # print(color_fmts[0])
 
         else:
             mono_fmts = intersect_pixel_formats(cv_fmts, MONO_PIXEL_FORMATS)

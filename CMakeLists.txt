@@ -131,6 +131,7 @@ include_directories(
 #endfunction(add_dependencies_and_linkings)
 
 
+
 add_executable(mono_camera_node
 #  ${PROJECT_NAME}
         src/nodes/mono_camera_node.cpp
@@ -144,6 +145,7 @@ add_dependencies(mono_camera_node
         ${PROJECT_NAME}_gencfg
         #${libvimba_EXPORTED_TARGETS}
 )
+
 
 #add_dependencies_and_linkings()
 #add_dependencies(mono_camera_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

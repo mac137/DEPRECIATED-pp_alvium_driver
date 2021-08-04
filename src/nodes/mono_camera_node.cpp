@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "mono_camera_node");
+    ros::init(argc, argv, "pp");
 
   ros::NodeHandle nh;
   ros::NodeHandle nhp("~");

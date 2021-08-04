@@ -159,6 +159,7 @@ class AvtVimbaCamera {
   int getTriggerModeInt(std::string mode_str);
   void printAllCameraFeatures(const CameraPtr& camera);
 
+  void pp_apply_my_settings();
   void updateAcquisitionConfig(Config& config);
   void updateExposureConfig(Config& config);
   void updateGainConfig(Config& config);
