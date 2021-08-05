@@ -19,7 +19,9 @@ class Handler4ros:
         self.shutdown_event = threading.Event()
         self.img_publisher = img_publisher
         self.cam_info_publisher = cam_info_publisher
-        self.half_exposure_time_nanoseconds = rospy.Duration(0, (max_exposure_time/2)*1000) # *1000 to convert to nanoseconds (10^-9)
+        self.half_exposure_time_nanoseconds = rospy.Duration(0, (max_exposure_time/2)*1000) # *1000 to convert from microseconds (10^-6) to nanoseconds (10^-9)
+        self.hardware_correction = rospy.Duration().from_sec(0.0215)
+        #print(self.hardware_correction.to_sec())
         self.bridge = CvBridge()
         if yaml_fname is not None:
             rospy.loginfo("Reading parameters from the calibration file: " + yaml_fname)
@@ -37,35 +39,8 @@ class Handler4ros:
             try:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
-                # and bgr8 seems to work well
-                # time_stamp_before = rospy.Time.now()
                 ros_img_msg = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="bgr8")
-                # raw_time_stamp = rospy.Time.now()
-                # diff_secs = time_stamp_before.secs - raw_time_stamp.secs
-                # duration_diff = raw_time_stamp - time_stamp_before
-                # print(str(diff_secs))
-                # diff_nanosecs = time_stamp_before.nsecs - raw_time_stamp.nsecs
-                # print(str(diff_nanosecs))
-                # print(str(duration_diff))
-                # print(str(raw_time_stamp))
-                # print(str(raw_time_stamp-duration_diff))
-                # print(str(raw_time_stamp - (duration_diff/2)))
-                # time_stamp = raw_time_stamp #-(duration_diff/20)
-                time_stamp = raw_time_stamp - self.half_exposure_time_nanoseconds
-                # self.f.write(str(diff_nanosecs)+"\n")
-                # ros_time_stamp = frame.get_timestamp()
-                # denominator = 1000000000 # for nano seconds which i 1e-9
-                # secs = int(ros_time_stamp //denominator)
-                # print(time_stamp.secs - 1621000800) # 1621000800 is unix time of 2021-05-15 at 15:00
-                # print(secs)
-                # print("diff is: " + str(time_stamp.secs - 1621000800 - secs))
-                # print("diff: " + str(time_stamp.secs-secs))
-                # nanosecs = (ros_time_stamp % denominator)
-                # print("diff is: " + str(time_stamp.nsecs - nanosecs))
-                # ros_time_stamp = rospy.Time() # secs=nanosecs=0
-                # ros_time_stamp.secs = secs
-                # ros_time_stamp.nsecs = nanosecs
-                # ros_img_msg.header.stamp = ros_time_stamp
+                time_stamp = raw_time_stamp - self.half_exposure_time_nanoseconds - self.hardware_correction
 
                 ros_img_msg.header.stamp = time_stamp
                 self.cam_info_params_msg.header.stamp = time_stamp

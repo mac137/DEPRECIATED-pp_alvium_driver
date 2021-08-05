@@ -88,6 +88,8 @@ MonoCamera::~MonoCamera(void) {
 
 void MonoCamera::frameCallback(const FramePtr& vimba_frame_ptr) {
   ros::Time ros_time = ros::Time::now();
+//  ROS_WARN_STREAM("Camera timestmap is: " << std::to_string(cam_.getTimestamp()));
+//  ROS_WARN_STREAM("ROS timestmap is:    " << std::to_string(ros_time.toSec()));
 
   // correction from the exposure time
   FeaturePtr vimba_feature_ptr;
@@ -97,6 +99,7 @@ void MonoCamera::frameCallback(const FramePtr& vimba_frame_ptr) {
 //    ROS_INFO_STREAM("The exposure time is: " << std::to_string(fValue));
   ros::Duration half_exposure_dur = ros::Duration().fromNSec((fValue/2)*1000);
 //    ROS_INFO_STREAM("The duration by half is in nanosecs: " << half_exposure_dur.toNSec());
+
 
     if (pub_.getNumSubscribers() > 0) {
     sensor_msgs::Image img;

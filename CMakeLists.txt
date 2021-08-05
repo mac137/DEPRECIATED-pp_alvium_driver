@@ -4,8 +4,8 @@ project(pp_alvium_driver)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(ALVIUM_LIBRARY1 /home/maciej/vimba/Vimba_4_2/VimbaCPP/DynamicLib/x86_64bit/libVimbaCPP.so)
-set(ALVIUM_LIBRARY2 /home/maciej/vimba/Vimba_4_2/VimbaCPP/DynamicLib/x86_64bit/libVimbaC.so)
+set(ALVIUM_LIBRARY1 /home/maciej/Vimba/Vimba_4_2/VimbaCPP/DynamicLib/x86_64bit/libVimbaCPP.so)
+set(ALVIUM_LIBRARY2 /home/maciej/Vimba/Vimba_4_2/VimbaCPP/DynamicLib/x86_64bit/libVimbaC.so)
 
 
 ## Find catkin macros and libraries
