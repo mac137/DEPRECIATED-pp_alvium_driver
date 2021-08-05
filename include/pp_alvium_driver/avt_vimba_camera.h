@@ -100,7 +100,9 @@ class AvtVimbaCamera {
   }
 
   typedef pp_alvium_driver::AvtVimbaCameraConfig Config;
-  void updateConfig(Config& config);
+    void pp_apply_my_settings(std::string cam_id, double exposure);
+    void pp_print_cam_settings(void);
+    void updateConfig(Config& config);
   void startImaging(void);
   void stopImaging(void);
   bool isOpened(void) { return opened_; }
@@ -159,7 +161,6 @@ class AvtVimbaCamera {
   int getTriggerModeInt(std::string mode_str);
   void printAllCameraFeatures(const CameraPtr& camera);
 
-  void pp_apply_my_settings();
   void updateAcquisitionConfig(Config& config);
   void updateExposureConfig(Config& config);
   void updateGainConfig(Config& config);

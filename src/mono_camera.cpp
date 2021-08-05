@@ -44,27 +44,41 @@ MonoCamera::MonoCamera(ros::NodeHandle& nh, ros::NodeHandle& nhp) : nh_(nh), nhp
   api_.start();
 
   // Set the image publisher before the streaming
-  pub_  = it_.advertiseCamera("rgb_raw",  1);
+    std::string img_topic;
+    nhp_.param("topic2publish", img_topic, std::string(""));
+  pub_  = it_.advertiseCamera(img_topic,  1);
 
   // Set the frame callback
   cam_.setCallback(boost::bind(&avt_vimba_camera::MonoCamera::frameCallback, this, _1));
 
   // Set the params
-  nhp_.param("ip", ip_, std::string(""));
-  nhp_.param("guid", guid_, std::string(""));
-  nhp_.param("camera_info_url", camera_info_url_, std::string(""));
-  std::string frame_id;
-  nhp_.param("frame_id", frame_id, std::string(""));
-  nhp_.param("show_debug_prints", show_debug_prints_, false);
-    ip_ = "DEV_1AB22C00A470";
-    frame_id = "pp_rgb";
-    camera_info_url_ = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210719_rgb.yaml";
+//  nhp_.param("ip", ip_, std::string(""));
+//  nhp_.param("guid", guid_, std::string(""));
+//  nhp_.param("camera_info_url", camera_info_url_, std::string(""));
+//  std::string frame_id;
+//  nhp_.param("frame_id", frame_id, std::string(""));
+//  nhp_.param("show_debug_prints", show_debug_prints_, false);
+    nhp_.param("camera_id", ip_, std::string(""));
+    nhp_.param("camera_info_url", camera_info_url_, std::string(""));
+    std::string frame_id;
+    nhp_.param("frame_id", frame_id, std::string(""));
+    nhp_.param("exposure", cam_exposure_, double());
+
+    ROS_WARN_STREAM("Read launch params are: " << ip_ << " " << img_topic << " " << camera_info_url_ << " " << frame_id << " " << std::to_string(cam_exposure_));
+
+//    ip_ = "DEV_1AB22C00A470";
+//    frame_id = "pp_rgb";
+//    camera_info_url_ = "/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210719_rgb.yaml";
 
   // Set camera info manager
   info_man_  = boost::shared_ptr<camera_info_manager::CameraInfoManager>(new camera_info_manager::CameraInfoManager(nhp_, frame_id, camera_info_url_));
 
   // Start dynamic_reconfigure & run configure()
   reconfigure_server_.setCallback(boost::bind(&avt_vimba_camera::MonoCamera::configure, this, _1, _2));
+    // these settings from pp_apply_my_settings are applied in MonoCamera::configure
+  //    cam_.pp_apply_my_settings(ip_, cam_exposure);
+    cam_.pp_print_cam_settings();
+
 }
 
 MonoCamera::~MonoCamera(void) {
@@ -74,11 +88,21 @@ MonoCamera::~MonoCamera(void) {
 
 void MonoCamera::frameCallback(const FramePtr& vimba_frame_ptr) {
   ros::Time ros_time = ros::Time::now();
-  if (pub_.getNumSubscribers() > 0) {
+
+  // correction from the exposure time
+  FeaturePtr vimba_feature_ptr;
+  cam_.getCameraPtr()->GetFeatureByName("ExposureTime", vimba_feature_ptr);
+    double fValue; // the exposure time is in pikto seconds
+    vimba_feature_ptr->GetValue(fValue);
+//    ROS_INFO_STREAM("The exposure time is: " << std::to_string(fValue));
+  ros::Duration half_exposure_dur = ros::Duration().fromNSec((fValue/2)*1000);
+//    ROS_INFO_STREAM("The duration by half is in nanosecs: " << half_exposure_dur.toNSec());
+
+    if (pub_.getNumSubscribers() > 0) {
     sensor_msgs::Image img;
     if (api_.frameToImage(vimba_frame_ptr, img)) {
       sensor_msgs::CameraInfo ci = info_man_->getCameraInfo();
-      ci.header.stamp = img.header.stamp = ros_time;
+      ci.header.stamp = img.header.stamp = ros_time - half_exposure_dur;
       img.header.frame_id = ci.header.frame_id;
       pub_.publish(img, ci);
     } else {
@@ -103,15 +127,20 @@ void MonoCamera::configure(Config& newconfig, uint32_t level) {
     if (newconfig.frame_id == "") {
       newconfig.frame_id = "pp";
     }
+
     // The camera already stops & starts acquisition
     // so there's no problem on changing any feature.
     if (!cam_.isOpened()) {
       cam_.start(ip_, guid_, show_debug_prints_);
+        cam_.pp_apply_my_settings(ip_, cam_exposure_);
+        cam_.startImaging();
     }
 
-    Config config = newconfig;
-    cam_.updateConfig(newconfig);
-    updateCameraInfo(config);
+
+//    Config config = newconfig;
+//    cam_.updateConfig(newconfig);
+
+//    updateCameraInfo(config);
   } catch (const std::exception& e) {
     ROS_ERROR_STREAM("Error reconfiguring mono_camera node : " << e.what());
   }

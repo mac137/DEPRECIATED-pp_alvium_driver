@@ -827,26 +827,45 @@ void AvtVimbaCamera::printAllCameraFeatures(const CameraPtr& camera) {
   }
 }
 
-void AvtVimbaCamera::pp_apply_my_settings()
+void AvtVimbaCamera::pp_apply_my_settings(std::string cam_id, double exposure)
 {
-
         setFeatureValue("ExposureAuto", "Off");
         setFeatureValue("ExposureMode", "Timed");
-        setFeatureValue("ExposureTime", 2200.0);
+        setFeatureValue("ExposureTime", exposure);
 
 //    setFeatureValue("DeviceLinkThroughputLimitMode", "On");
-    setFeatureValue("DeviceLinkThroughputLimit",
-                    450000000);
 
-    setFeatureValue("GainAuto", "Continuous");
     setFeatureValue("BalanceWhiteAuto", "Continuous");
+    setFeatureValue("GainAuto", "Continuous");
+
+    if (cam_id == "DEV_1AB22C00A470") // RGB cam
+    {
+        setFeatureValue("DeviceLinkThroughputLimit", 450000000);
+        setFeatureValue("PixelFormat", "RGB8");
+    }
+
+    else if (cam_id == "DEV_1AB22C00C28B") // NIR cam
+    {
+        setFeatureValue("DeviceLinkThroughputLimit", 310500000);
+        setFeatureValue("PixelFormat", "Mono8");
+    }
+}
+
+void AvtVimbaCamera::pp_print_cam_settings()
+{
+    double expo_time;
+    getFeatureValue("ExposureTime", expo_time);
+    ROS_WARN_STREAM("The exposure time is: " << std::to_string(expo_time) << " x 10^-6 s (micro seconds)");
 
 
-    setFeatureValue("PixelFormat", "RGB8");
+    int throughput;
+    getFeatureValue("DeviceLinkThroughputLimit", throughput);
+    ROS_WARN_STREAM("Device Link Throughput Limit is: " << std::to_string(throughput));
 
 
-
-
+    std::string pixelformat;
+    getFeatureValue("PixelFormat", pixelformat);
+    ROS_WARN_STREAM("Pixel Format is: " << pixelformat);
 
 }
 
@@ -1008,8 +1027,8 @@ void AvtVimbaCamera::updateExposureConfig(Config& config) {
     }
     if (config.exposure != config_.exposure || on_init_) {
         changed = true;
-//        setFeatureValue("ExposureTime", static_cast<float>(config.exposure));
-        setFeatureValue("ExposureTime", 2200.0);
+        setFeatureValue("ExposureTime", static_cast<float>(config.exposure));
+//        setFeatureValue("ExposureTime", 2200.0);
 
     }
     if(changed && show_debug_prints_){

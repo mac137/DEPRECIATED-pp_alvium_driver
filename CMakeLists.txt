@@ -94,44 +94,6 @@ include_directories(
 )
 
 
-
-#function(add_dependencies_and_linkings arg)
-#    add_dependencies(${arg}
-#            ${PROJECT_NAME}_gencfg
-#            #${libvimba_EXPORTED_TARGETS}
-#            )
-#
-#    if("${ARCH}" STREQUAL i386)
-#        target_link_libraries(${arg}
-#                ${catkin_LIBRARIES}
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/32bit/libVimbaC.so
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/32bit/libVimbaCPP.so
-#                )
-#    elseif("${ARCH}" STREQUAL x86_64)
-#        target_link_libraries(${arg}
-#                ${catkin_LIBRARIES}
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/64bit/libVimbaC.so
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/64bit/libVimbaCPP.so
-#                )
-#    elseif("${ARCH}" STREQUAL armv7)
-#        target_link_libraries(${arg}
-#                ${catkin_LIBRARIES}
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/arm_32bit/libVimbaC.so
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/arm_32bit/libVimbaCPP.so
-#                )
-#    elseif("${ARCH}" STREQUAL armv8)
-#        target_link_libraries(${arg}
-#                ${catkin_LIBRARIES}
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/arm_64bit/libVimbaC.so
-#                ${CMAKE_CURRENT_SOURCE_DIR}/lib/arm_64bit/libVimbaCPP.so
-#                )
-#    else()
-#        message(FATAL_ERROR "[libvimba]: Architecture ${ARCH} not suported. Exiting...")
-#    endif()
-#endfunction(add_dependencies_and_linkings)
-
-
-
 add_executable(mono_camera_node
 #  ${PROJECT_NAME}
         src/nodes/mono_camera_node.cpp
@@ -151,7 +113,7 @@ add_dependencies(mono_camera_node
 #add_dependencies(mono_camera_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 add_library(avt_camera_nodelets
-#        src/nodes/mono_camera_nodelet.cpp
+        src/nodes/mono_camera_nodelet.cpp
 #        src/nodes/stereo_camera_nodelet.cpp
         src/mono_camera.cpp
 #        src/stereo_camera.cpp
@@ -186,11 +148,11 @@ catkin_install_python(PROGRAMS
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
         )
 
-#install(TARGETS mono_camera_node
-#        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-#        )
+install(TARGETS mono_camera_node avt_camera_nodelets
+        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        )
 
 ## Mark executables and/or libraries for installation
 #install(
