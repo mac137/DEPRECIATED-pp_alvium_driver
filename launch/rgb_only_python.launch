@@ -1,22 +1,26 @@
 <?xml version="1.0"?>
 <launch>
+
+    <arg name="path2cam_calib_yaml" default="/home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210719_rgb.yaml" doc="global path to the camera calibration yaml file"/>
+    <arg name="camera_id" default="DEV_1AB22C00A470" doc="ID of the camera, e.g. DEV_1AB22C00A470"/>
+    <arg name="exposure_time" default="2200" doc="Absolute value in microseconds (10^-6s) (no max or something)"/>
+    <arg name="hardware_delay_correction" default="0.026" doc="Absolute value in seconds. This is due to the lag in transfering imgs from the cam to the callback"/>
+    <arg name="published_img_topic" default="/pp/rgb_raw" doc="name of the camera images topic"/>
+    <arg name="publish_camera_info" default="true" doc="Write true to publish camera info too"/>
+    <arg name="published_caminfo_topic" default="/pp/rgb_cam_info" doc="name of the camera info topic"/>
+
+
 <!--     <remap from="img_topic_subscribed" to="cam0/image_raw" /> -->
 <!--     <remap from="pattern_topic_published" to="cam0/calib_pattern_recognised" /> -->
     <node pkg="pp_alvium_driver" name="ros_alvium_rgb" type="ros_alvium_rgb.py" output="screen">
-<!--         <rosparam file="$(find pp_alvium_driver)/config/params_rgb.yaml" command="load"/> -->
-<!--         <remap from="pp/nir_raw" to="pp/rgb_raw"/> -->
-        <rosparam>
-        path2cam_calib_yaml: /home/maciej/ros1_wss/pp_collector/src/pp_alvium_driver/calib/210719_rgb.yaml
-        camera_id: DEV_1AB22C00A470
-        frequency: 45
-<!--         2200 for outdoors and 5000 for indoors -->
-        exposure_time: 2200
-        hardware_delay_correction: 0.026
-<!--         max_exposure_time: 5000 -->
-        publish_camera_info: True
-        published_caminfo_topic: /pp/rgb_cam_info
-        published_img_topic: /pp/rgb_raw
-        </rosparam>
+            <param name="path2cam_calib_yaml" value="$(arg path2cam_calib_yaml)"/>
+            <param name="camera_id" value="$(arg camera_id)"/>
+            <param name="exposure_time" value="$(arg exposure_time)"/>
+            <param name="hardware_delay_correction" value="$(arg hardware_delay_correction)"/>
+            <param name="published_img_topic" value="$(arg published_img_topic)"/>
+            <param name="publish_camera_info" value="$(arg publish_camera_info)"/>
+            <param name="published_caminfo_topic" value="$(arg published_caminfo_topic)"/>
+            <param name="frequency" value="45"/>
     </node>
 
 </launch>
