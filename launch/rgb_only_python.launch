@@ -11,6 +11,7 @@
         frequency: 45
 <!--         2200 for outdoors and 5000 for indoors -->
         exposure_time: 2200
+        hardware_delay_correction: 0.026
 <!--         max_exposure_time: 5000 -->
         publish_camera_info: True
         published_caminfo_topic: /pp/rgb_cam_info

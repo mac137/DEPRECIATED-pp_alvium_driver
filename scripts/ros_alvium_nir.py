@@ -16,10 +16,13 @@ from pathlib import Path
 
 
 class Handler4ros:
-    def __init__(self, img_publisher, cam_info_publisher, yaml_fname):
+    def __init__(self, img_publisher, cam_info_publisher,
+                 yaml_fname, absolute_exposure_time, hardware_delay_correction):
         self.shutdown_event = threading.Event()
         self.img_publisher = img_publisher
         self.cam_info_publisher = cam_info_publisher
+        self.half_exposure_time_nanoseconds = rospy.Duration(0, (absolute_exposure_time / 2) * 1000) # *1000 to convert from microseconds (10^-6) to nanoseconds (10^-9)
+        self.hardware_delay_correction = rospy.Duration().from_sec(hardware_delay_correction)
         self.bridge = CvBridge()
         if yaml_fname is not None:
             rospy.loginfo("Reading parameters from the calibration file: " + yaml_fname)
@@ -28,26 +31,15 @@ class Handler4ros:
                 rospy.logerr("Could not read from the calibration file!")
 
     def __call__(self, cam: Camera, frame: Frame):
-        # ENTER_KEY_CODE = 13
-        #
-        # key = cv2.waitKey(1)
-        # if key == ENTER_KEY_CODE:
-        #     # self.shutdown_event.set()
-        #     # return
-        #     self.close_properly()
+        raw_time_stamp = rospy.Time.now()
 
-        # elif frame.get_status() == FrameStatus.Complete:
         if frame.get_status() == FrameStatus.Complete:
             # print('{} acquired {}'.format(cam, frame), flush=True)
             try:
                 # ros_img = self.bridge.cv2_to_imgmsg(frame.as_opencv_image(), encoding="passthrough")
                 # encodings rgb8 odwraca kolory, see here: http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
-                # and bgr8 seems to work well
-                time_stamp_before = rospy.Time.now()
                 ros_img_msg = self.bridge.cv2_to_imgmsg(Handler4ros.resize_img(frame.as_opencv_image(), 2064, 1544), encoding="mono8")
-                raw_time_stamp = rospy.Time.now()
-                duration_diff = raw_time_stamp - time_stamp_before
-                time_stamp = raw_time_stamp #- (duration_diff / 20)
+                time_stamp = raw_time_stamp - self.half_exposure_time_nanoseconds - self.hardware_delay_correction
 
                 ros_img_msg.header.stamp = time_stamp
                 self.cam_info_params_msg.header.stamp = time_stamp
@@ -111,7 +103,8 @@ def main(args):
         cam_info = bool(rospy.get_param("/ros_alvium_nir/publish_camera_info"))
         cam_info_topic = str(rospy.get_param("/ros_alvium_nir/published_caminfo_topic"))
         cam_img_topic = str(rospy.get_param("/ros_alvium_nir/published_img_topic"))
-        max_exposure_time = int(rospy.get_param("/ros_alvium_nir/max_exposure_time"))
+        absolute_exposure_time = int(rospy.get_param("/ros_alvium_nir/exposure_time"))
+        hardware_delay_correction = float(rospy.get_param("/ros_alvium_nir/hardware_delay_correction"))
 
     except:
         text = "NIR camera driver could not get launch parameters"
@@ -140,8 +133,8 @@ def main(args):
         with get_camera(cam_id) as cam:
 
             # Start Streaming, wait for five seconds, stop streaming
-            setup_camera(cam, max_exposure_time)
-            handler = Handler4ros(pub_img, pub_cam_info, yaml_fname)
+            setup_camera(cam, absolute_exposure_time)
+            handler = Handler4ros(pub_img, pub_cam_info, yaml_fname, absolute_exposure_time, hardware_delay_correction)
             # this handles CTRL+C to close the node properly
             signal(SIGINT, handler.handler_f)
             rospy.loginfo("Alvium camera of id={} opened with intended fps={}".format(cam_id, frequency))
