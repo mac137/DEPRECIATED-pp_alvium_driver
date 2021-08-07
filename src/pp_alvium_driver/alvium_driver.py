@@ -27,6 +27,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import threading
 import sys
 import cv2
+import rospy
 from typing import Optional
 from vimba import *
 
@@ -78,7 +79,9 @@ def get_camera(camera_id: Optional[str]) -> Camera:
                 return vimba.get_camera_by_id(camera_id)
 
             except VimbaCameraError:
-                abort('Failed to access Camera \'{}\'. Abort.'.format(camera_id))
+                text = 'Failed to access Camera \'{}\'. Abort.'.format(camera_id)
+                rospy.logfatal(text)
+                abort(text)
 
         else:
             cams = vimba.get_all_cameras()
