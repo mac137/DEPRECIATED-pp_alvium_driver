@@ -1,0 +1,2 @@
+this x86_64bit folder with the dyn libraries inside were copied from the Vimba_4_2/VimbaCPP package of the original vimba drivers
+
