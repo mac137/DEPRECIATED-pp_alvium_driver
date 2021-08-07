@@ -20,7 +20,7 @@ class Handler4ros:
         self.img_publisher = img_publisher
         self.cam_info_publisher = cam_info_publisher
         self.half_exposure_time_nanoseconds = rospy.Duration(0, (max_exposure_time/2)*1000) # *1000 to convert from microseconds (10^-6) to nanoseconds (10^-9)
-        self.hardware_correction = rospy.Duration().from_sec(0.0215)
+        self.hardware_correction = rospy.Duration().from_sec(0.026) #0.026 seems ok, 0.025 seems ok too
         #print(self.hardware_correction.to_sec())
         self.bridge = CvBridge()
         if yaml_fname is not None:
